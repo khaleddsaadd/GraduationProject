@@ -4,6 +4,8 @@ from gtts import gTTS
 import os
 import random
 import re
+import speech_recognition as sr 
+
 def textToSpeach(text):
     myobj = gTTS(text=text, lang='en', slow=False)
     # Saving the converted audio in a mp3 file named
@@ -99,11 +101,11 @@ pairs = [
         ["I'm a very big fan of Football",]
     ],
     [
-        r"who (.*) sportsperson ?",
+        r"(.*) sportsperson ?",
         ["Messy","Ronaldo","Roony"]
     ],
     [
-        r"who (.*) (moviestar|actor)?",
+        r"(.*) (moviestar|actor)?",
         ["Brad Pitt"]
     ],
     [
@@ -196,18 +198,29 @@ class Chat:
 
     # Hold a conversation with a chatbot
     def converse(self, quit="quit"):
-        user_input = ""
+        r = sr.Recognizer()
+        print("Start")
+        with sr.Microphone() as source:
+            # read the audio data from the default microphone
+            audio_data = r.record(source, duration=3)
+            print("Recognizing...")
+            # convert speech to text
+            text = r.recognize_google(audio_data)
+            print(text)
+            text = r.recognize_google(audio_data, language="en")
+        user_input = text
         while user_input != quit:
             user_input = quit
             try:
-                user_input = input(">")
+                user_input = text
             except EOFError:
                 print(user_input)
             if user_input:
                 while user_input[-1] in "!.":
                     user_input = user_input[:-1]
-                x=self.respond(user_input)
-                textToSpeach(x)
+        print(user_input)
+        x=self.respond(user_input)
+        textToSpeach(x)
 def chat():
     chat = Chat(pairs, reflections)
     chat.converse()
