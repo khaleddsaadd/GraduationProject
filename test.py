@@ -124,7 +124,7 @@ pairs = [
     ],
     [
         r"Where (.*) (movie|film) produced?",
-        ["The movie is  ...."]
+        ["The movie is produced in ...."]
     ],
     [
         r"What (.*) age (.*) (movie|film)?",
@@ -134,6 +134,22 @@ pairs = [
         r"When (.*) (movie|film) (.*) produced?",
         ["The video was produced in ..."]
     ],
+    [
+        r"what (.*)last (movie|film) (.*) watched?",
+        ["The last movie you watched is ..."]
+    ],
+    [
+        r"What (.*)last (movie|film) released?",
+        ["The last movie released in ..."]
+    ],
+    [
+        r"what (.*) (rating)?",
+        ["The movie has rating 5.5"]
+    ],
+    [
+        r"who (.*) (director)?",
+        ["The director is..."]
+    ],    
     [
         r"Are (.*) (Captions|Subtitles) (.*) available ?",
         ["Yes","No"]
