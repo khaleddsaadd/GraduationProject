@@ -51,6 +51,10 @@ pairs = [
         ["Khaled,Mai,Reem,Ahmed",]
     ],
     [
+        r"What can you do?",
+        ["I take your uploaded video and I can tell you what does it contain in details, and I can cut the scenes you dont want to see and I give you back a new video"]
+    ],
+    [
         r"sorry (.*)",
         ["Its alright","Its OK, never mind",]
     ],
@@ -109,10 +113,39 @@ pairs = [
     [
         r"i am looking for online guides and courses to learn data science, can you suggest?",
         ["Crazy_Tech has many great articles with each step explanation along with code, you can explore"]
+    ],  
+    [
+        r"What (.*) (genre|type) (.*) (movie|film)?",
+        ["The Genre of the movie is ...."]
     ],
     [
+        r"What (.*) age (.*) (movie|film)?",
+        ["Suggested 10+"]
+    ],
+    [
+        r"When (.*) (movie|film) (.*) produced?",
+        ["The video was produced in ..."]
+    ],
+    [
+        r"Are (.*) (Captions|Subtitles) (.*) available ?",
+        ["Yes","No"]
+    ],
+    [
+        r"Is (.*) available ?",
+        ["Yes","No","Not released yet"]
+    ],
+    [
+        r"Does (.*) (movie|film) (.*) Sex scenes?",
+        ["Yes","No"]
+    ],    
+    [
+        r"Does (.*) (movie|film) (.*) (insults|Bad words)?",
+        ["Yes","No"]
+    ],    
+    
+    [
         r"bye",
-        ["BBye take care. See you soon :) ","It was nice talking to you. See you soon :)"]
+        ["Bye take care. See you soon :) ","It was nice talking to you. See you soon :)"]
     ],
 ]
 class Chat:
