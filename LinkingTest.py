@@ -36,13 +36,17 @@ pairs = [
         r"my name is (.*)",
         ["Hello %1, How are you today ?",]
     ],
+     [
+        r"who are your supervisors",
+        ["Dr Eslam Amer and Engineer Mahmoud Elsahar",]
+    ],
     [
         r"hi|hey|hello|welcome",
         ["Hello", "Hey there",]
     ], 
     [
         r"what is your name ?",
-        ["Pouney",]
+        ["Pruney",]
     ],
     [
         r"how are you ?",
@@ -201,23 +205,12 @@ class Chat:
         r = sr.Recognizer()
         print("Start")
         with sr.Microphone() as source:
-            # read the audio data from the default microphone
-            audio_data = r.record(source, duration=3)
+            audio_data = r.record(source, duration=5)
             print("Recognizing...")
-            # convert speech to text
             text = r.recognize_google(audio_data)
             print(text)
             text = r.recognize_google(audio_data, language="en")
         user_input = text
-        while user_input != quit:
-            user_input = quit
-            try:
-                user_input = text
-            except EOFError:
-                print(user_input)
-            if user_input:
-                while user_input[-1] in "!.":
-                    user_input = user_input[:-1]
         print(user_input)
         x=self.respond(user_input)
         textToSpeach(x)
