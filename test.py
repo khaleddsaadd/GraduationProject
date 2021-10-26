@@ -119,6 +119,14 @@ pairs = [
         ["The Genre of the movie is ...."]
     ],
     [
+        r"Where (.*) (movie|film) (.*) place?",
+        ["The movie is  ...."]
+    ],
+    [
+        r"Where (.*) (movie|film) produced?",
+        ["The movie is  ...."]
+    ],
+    [
         r"What (.*) age (.*) (movie|film)?",
         ["Suggested 10+"]
     ],
