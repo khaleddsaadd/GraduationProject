@@ -113,7 +113,11 @@ pairs = [
     [
         r"i am looking for online guides and courses to learn data science, can you suggest?",
         ["Crazy_Tech has many great articles with each step explanation along with code, you can explore"]
-    ],  
+    ],
+    [
+        r"Is (.*)(appropriate|suitable) (.*) (kids|children)?",
+        ["Yes","No"]
+    ],
     [
         r"What (.*) (genre|type) (.*) (movie|film)?",
         ["The Genre of the movie is ...."]
@@ -137,6 +141,10 @@ pairs = [
     [
         r"what (.*)last (movie|film) (.*) watched?",
         ["The last movie you watched is ..."]
+    ],
+    [
+        r"(.*)Trailer (.*) available?",
+        ["The movie isn't released yet"]
     ],
     [
         r"What (.*)last (movie|film) released?",
