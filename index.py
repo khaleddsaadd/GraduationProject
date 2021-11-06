@@ -269,6 +269,8 @@ class Chat:
             user_input = quit
             try:
                 user_input = input(">")
+                if user_input=="I want to upload a new video":
+                    inp_video()
             except EOFError:
                 print(user_input)
             if user_input:
