@@ -10,9 +10,9 @@ def textToSpeach(text):
     myobj = gTTS(text=text, lang='en', slow=False)
     # Saving the converted audio in a mp3 file named
     # welcome 
-    myobj.save("welcome.mp3")
+    myobj.save("Bot.mp3")
     # Playing the converted file
-    os.system("welcome.mp3")
+    os.system("Bot.mp3")
 reflections = {
   "i am"       : "you are",
   "i was"      : "you were",
@@ -93,11 +93,11 @@ pairs = [
         ["%1 is an Amazing company, I have heard about it. But they are in huge loss these days.",]
     ],
     [
-        r"(.*)raining in (.*)",
+        r"(.)raining in (.)",
         ["No rain since last week here in %2","Damn its raining too much here in %2"]
     ],
     [
-        r"how (.*) health(.*)",
+        r"how (.) health(.)",
         ["I'm a computer program, so I'm always healthy ",]
     ],
     [
@@ -117,15 +117,15 @@ pairs = [
         ["Crazy_Tech has many great articles with each step explanation along with code, you can explore"]
     ],
     [
-        r"Is (.*)(appropriate|suitable) (.*) (kids|children)?",
+        r"Is (.)(appropriate|suitable) (.) (kids|children)?",
         ["Yes","No"]
     ],
     [
-        r"What (.*) (genre|type) (.*) (movie|film)?",
+        r"What (.) (genre|type) (.) (movie|film)?",
         ["The Genre of the movie is ...."]
     ],
     [
-        r"Where (.*) (movie|film) (.*) place?",
+        r"Where (.) (movie|film) (.) place?",
         ["The movie is  ...."]
     ],
     [
@@ -133,19 +133,19 @@ pairs = [
         ["The movie is produced in ...."]
     ],
     [
-        r"What (.*) age (.*) (movie|film)?",
+        r"What (.) age (.) (movie|film)?",
         ["Suggested 10+"]
     ],
     [
-        r"When (.*) (movie|film) (.*) produced?",
+        r"When (.) (movie|film) (.) produced?",
         ["The video was produced in ..."]
     ],
     [
-        r"what (.*)last (movie|film) (.*) watched?",
+        r"what (.)last (movie|film) (.) watched?",
         ["The last movie you watched is ..."]
     ],
     [
-        r"(.*)Trailer (.*) available?",
+        r"(.)Trailer (.) available?",
         ["The movie isn't released yet"]
     ],
     [
@@ -161,7 +161,7 @@ pairs = [
         ["The director is..."]
     ],    
     [
-        r"Are (.*) (Captions|Subtitles) (.*) available ?",
+        r"Are (.) (Captions|Subtitles) (.) available ?",
         ["Yes","No"]
     ],
     [
@@ -169,11 +169,11 @@ pairs = [
         ["Yes","No","Not released yet"]
     ],
     [
-        r"Does (.*) (movie|film) (.*) Sex scenes?",
+        r"Does (.) (movie|film) (.) Sex scenes?",
         ["Yes","No"]
     ],    
     [
-        r"Does (.*) (movie|film) (.*) (insults|Bad words)?",
+        r"Does (.) (movie|film) (.) (insults|Bad words)?",
         ["Yes","No"]
     ],    
     
@@ -184,7 +184,7 @@ pairs = [
    
 ]
 class Chat:
-    def __init__(self, pairs, reflections={}):
+    def _init_(self, pairs, reflections={}):
         """
         Initialize the chatbot.  Pairs is a list of patterns and responses.  Each
         pattern is a regular expression matching the user's statement or question,
@@ -283,18 +283,25 @@ def chat():
     chat.converse()
 def inp_video():
     inputvideo = input("Enter your video name \n")
-    cap = cv2.VideoCapture(r'C:\Users\Khaled Saad\Desktop\Video'+inputvideo+'.mp4')
+    cap = cv2.VideoCapture(r'C:\xampp\htdocs\GraduationProject'+inputvideo+'.mp4')
+    if (cap.isOpened()== False): 
+        print("Error opening video  file")
     while(cap.isOpened()):
         ret, frame = cap.read()
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        cv2.imshow('frame',gray)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if ret == True:
+        
+            # Display the resulting frame
+            cv2.imshow('Frame', frame)
+        
+            # Press Q on keyboard to  exit
+            if cv2.waitKey(25) & 0xFF == ord('q'):
+                break
+        
+        # Break the loop
+        else: 
             break
 
-    cap.release()
-    cv2.destroyAllWindows()
 
-
-if __name__ == "__main__":
-    mytext = 'Welcome'
+if _name_ == "_main_":
+    print("Start Talking To Pruney Application")
     chat()
