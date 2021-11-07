@@ -302,6 +302,6 @@ def inp_video():
             break
 
 
-if _name_ == "_main_":
-    print("Start Talking To Pruney Application")
+if __name__ == "__main__":
+    mytext = 'Welcome'
     chat()
