@@ -1,7 +1,7 @@
 import numpy as np
-import cv2
+import  cv2
 inputvideo = input("Enter your video name \n")
-cap = cv2.VideoCapture(r'C:\Users\Home\Downloads\demodemo'+inputvideo+'.mp4')
+cap = cv2.VideoCapture(r'C:\xampp\htdocs\GraduationProject\Videos'+inputvideo+'.mp4')
 while(cap.isOpened()):
   ret, frame = cap.read()
   gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
