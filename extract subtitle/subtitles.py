@@ -102,29 +102,7 @@ path = r'C:\xampp\htdocs\GraduationProject\Converted_audio.wav'
 print("\nFull text:", get_large_audio_transcription(path))
 
 
-# # Importing TextBlob
-# from textblob import TextBlob
 
-# # Preparing an input sentence
-# #sentence = '''The platform provides universal access to the world's best education, partnering with top universities and organizations to offer courses online.'''
-
-# # Creating a textblob object and assigning the sentiment property
-# # analysis = TextBlob(sentence).sentiment
-# # print(analysis)
-
-
-# # Sentiment(polarity=0.5, subjectivity=0.26666666666666666)
-
-# from textblob import TextBlob
-
-# # Preparing an input sentence
-
-
-# analysisPol = TextBlob(whole_text).polarity
-# analysisSub = TextBlob(whole_text).subjectivity
-
-# print(analysisPol)
-# print(analysisSub)
 
 
 
