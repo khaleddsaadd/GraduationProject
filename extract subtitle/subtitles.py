@@ -12,6 +12,12 @@
 #     print(text)
     
 
+from textblob import TextBlob
+from nltk.util import pr
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns 
 
 # importing libraries 
 import moviepy.editor as mp
@@ -70,38 +76,58 @@ def get_large_audio_transcription(path):
                 print("Error:", str(e))
             else:
                 text = f"{text.capitalize()}. "
-                print(chunk_filename, ":", text)
+
+                #Sentiment Analysis
+                blob = TextBlob(text)
+                sentiment = blob.sentiment.polarity
+                if sentiment >0:
+                    result= "pos"
+                elif sentiment <0:
+                    result= "neg"
+                else:
+                    result = "neutral"
+
+                print(chunk_filename, ":", text, ", Sentiment:", result)
+
                 whole_text += text
+
+
+    analysis = TextBlob(whole_text).sentiment
+    print("Full text ",analysis)
+                
     # return the text for all chunks detected
-    return whole_text 
+    return whole_text + "(" + result + ")"
     
 path = r'C:\xampp\htdocs\GraduationProject\Converted_audio.wav'
 print("\nFull text:", get_large_audio_transcription(path))
 
 
-# Importing TextBlob
-from textblob import TextBlob
+# # Importing TextBlob
+# from textblob import TextBlob
 
-# Preparing an input sentence
-#sentence = '''The platform provides universal access to the world's best education, partnering with top universities and organizations to offer courses online.'''
+# # Preparing an input sentence
+# #sentence = '''The platform provides universal access to the world's best education, partnering with top universities and organizations to offer courses online.'''
 
-# Creating a textblob object and assigning the sentiment property
-# analysis = TextBlob(sentence).sentiment
-# print(analysis)
-
-
-# Sentiment(polarity=0.5, subjectivity=0.26666666666666666)
-
-from textblob import TextBlob
-
-# Preparing an input sentence
+# # Creating a textblob object and assigning the sentiment property
+# # analysis = TextBlob(sentence).sentiment
+# # print(analysis)
 
 
-analysisPol = TextBlob(whole_text).polarity
-analysisSub = TextBlob(whole_text).subjectivity
+# # Sentiment(polarity=0.5, subjectivity=0.26666666666666666)
 
-print(analysisPol)
-print(analysisSub)
+# from textblob import TextBlob
+
+# # Preparing an input sentence
+
+
+# analysisPol = TextBlob(whole_text).polarity
+# analysisSub = TextBlob(whole_text).subjectivity
+
+# print(analysisPol)
+# print(analysisSub)
+
+
+
 
 
 
