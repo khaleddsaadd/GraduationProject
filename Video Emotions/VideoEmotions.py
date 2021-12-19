@@ -17,8 +17,8 @@ frameRate = cap.get(5) #frame rate
 x=1
 
 
-face_classifier=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-classifier = load_model('EmotionDetectionModel.h5')
+face_classifier=cv2.CascadeClassifier('Video Emotions/haarcascade_frontalface_default.xml')
+classifier = load_model('Video Emotions/EmotionDetectionModel.h5')
 
 class_labels=['Angry','Happy','Neutral','Sad','Surprise']
 
