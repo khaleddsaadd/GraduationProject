@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt    # for plotting the images
 import pandas as pd
 from keras.utils import np_utils
 from skimage.transform import resize   # for resizing images
+from itertools import islice
 
 count = 0
 videoFile = r"Videos/Demo.mp4"
@@ -63,3 +64,16 @@ cap.release()
 print ("Done!")
 print(Emotions)
 cv2.destroyAllWindows()
+#Probabilities of transitions from emotion to all other emotions
+def Probability(seq, n=2):
+    it = iter(seq)
+    result = tuple(islice(it, n))
+    if len(result) == n:
+        yield result
+    for elem in it:
+        result = result[1:] + (elem,)
+        yield result
+pairs = pd.DataFrame(Probability(Emotions), columns=['state1', 'state2'])
+counts = pairs.groupby('state1')['state2'].value_counts()
+probs = (counts / counts.sum()).unstack()
+print(probs)
