@@ -10,6 +10,9 @@ import pandas as pd
 from keras.utils import np_utils
 from skimage.transform import resize   # for resizing images
 from itertools import islice
+from textblob import TextBlob
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from collections import Counter
 
 count = 0
 videoFile = r"Videos/Demo.mp4"
@@ -64,6 +67,26 @@ cap.release()
 print ("Done!")
 print(Emotions)
 cv2.destroyAllWindows()
+
+a= Counter()
+b = 0
+n = 15
+f=[]
+for x in Emotions :
+  b+=1
+  a [x]+=1
+  
+  if b%n == 0:
+   print (a)
+   max_key = max(a, key=a.get)
+  #print(max_key)
+   f.append(max_key)
+   a= Counter()
+
+# print(f)   
+
+
+
 #Probabilities of transitions from emotion to all other emotions
 def Probability(seq, n=2):
     it = iter(seq)
