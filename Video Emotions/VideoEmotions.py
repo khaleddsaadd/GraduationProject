@@ -70,7 +70,7 @@ cv2.destroyAllWindows()
 
 a= Counter()
 b = 0
-n = 15
+n = 5
 f=[]
 for x in Emotions :
   b+=1
