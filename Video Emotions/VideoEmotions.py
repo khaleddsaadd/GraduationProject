@@ -10,9 +10,8 @@ import pandas as pd
 from keras.utils import np_utils
 from skimage.transform import resize   # for resizing images
 from itertools import islice
-from textblob import TextBlob
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from collections import Counter
+from SeqMarkovChain import*
 
 count = 0
 videoFile = r"Videos/Demo.mp4"
@@ -83,20 +82,25 @@ for x in Emotions :
    f.append(max_key)
    a= Counter()
 
-# print(f)   
+print(f)   
 
+SeqMarkovChain(f)
 
 
 #Probabilities of transitions from emotion to all other emotions
-def Probability(seq, n=2):
-    it = iter(seq)
-    result = tuple(islice(it, n))
-    if len(result) == n:
-        yield result
-    for elem in it:
-        result = result[1:] + (elem,)
-        yield result
-pairs = pd.DataFrame(Probability(Emotions), columns=['state1', 'state2'])
-counts = pairs.groupby('state1')['state2'].value_counts()
-probs = (counts / counts.sum()).unstack()
-print(probs)
+# def Probability(seq, n=2):
+#     it = iter(seq)
+#     result = tuple(islice(it, n))
+#     if len(result) == n:
+#         yield result
+#     for elem in it:
+#         result = result[1:] + (elem,)
+#         yield result
+# pairs = pd.DataFrame(Probability(Emotions), columns=['state1', 'state2'])
+# counts = pairs.groupby('state1')['state2'].value_counts()
+# probs = (counts / counts.sum()).unstack()
+# print(probs)
+
+#new test
+
+#print(pd.crosstab(pd.Series(Emotions[1:],name=''),pd.Series(Emotions[:-1],name=''),normalize=1))
