@@ -1,28 +1,25 @@
+import os
+import re
+import pysrt
 import text2emotion as te
 
-with open('hobbsandshaw.srt') as file:
-    subtitle = file.readlines()
-    sub_list = [subtitle[i : i+4] for i in range(0, len(subtitle), 4)]
-    
-    this_dict = {}
-    subtitle=[]
-    
-    for item in sub_list:
-        number = item[0].strip('\n')
-        this_dict[number] = item[2].strip('\n')
-        
-        
-    #print(this_dict)
-for x in this_dict:
-  #print(this_dict[x])
-  subtitle.append(this_dict[x])
-print(subtitle)
-
-
-
+folderpath = r"Sub" # make sure to put the 'r' in front
+filepaths  = [os.path.join(folderpath, name) for name in os.listdir(folderpath)]
+all_files = []
+S=[]
 emotions=[]
-for E in subtitle:
-  max_key=max(te.get_emotion(E),key=te.get_emotion(E).get)
-  emotions.append(max_key)
-  #print(max_key)
-print(emotions) 
+i=0
+for path in filepaths:
+    print(path)
+    subs = pysrt.open(path)
+
+    for sub in subs:
+        S.append(sub.text)
+    #print(S)
+    for Emotion in S:
+        max_key=max(te.get_emotion(Emotion),key=te.get_emotion(Emotion).get)
+        emotions.append(max_key)
+    print(emotions)
+    S*= 0
+    emotions*=0
+    print("---------------------------------------------------------------------------")
