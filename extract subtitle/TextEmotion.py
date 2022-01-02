@@ -5,6 +5,7 @@ import text2emotion as te
 from collections import Counter
 import csv
 from csv import DictWriter
+from SeqMarkovChain import*
 
 
 folderpath = r"Subtitles" # make sure to put the 'r' in front
@@ -41,12 +42,14 @@ for path in filepaths:
     fieldnames = ['Movie_Name','Emotions']
     op={'Movie_Name':path,'Emotions':f }
 
-    with open(r'Emotions Dataset.csv','a') as csv_file:
-        dictwriter_object = DictWriter(csv_file, fieldnames=fieldnames)
-        dictwriter_object.writerow(op)
-        csv_file.close()
+    # with open(r'Emotions Dataset.csv','a') as csv_file:
+    #     dictwriter_object = DictWriter(csv_file, fieldnames=fieldnames)
+    #     dictwriter_object.writerow(op)
+    #     csv_file.close()
 
-    S*= 0
-    emotions*=0
-    f*=0
+    # S*= 0
+    # emotions*=0
+    # f*=0
     print("---------------------------------------------------------------------------")
+
+    SeqMarkovChain(f)
