@@ -23,7 +23,8 @@ classifier = load_model('Video Emotions/EmotionDetectionModel.h5')
 
 class_labels=['Angry','Happy','Neutral','Sad','Surprise']
 
-folderpath = r"Violence Dataset" # make sure to put the 'r' in front
+#folderpath = r"Violence Dataset" # make sure to put the 'r' in front
+folderpath = r"Non-Violence Dataset"
 filepaths  = [os.path.join(folderpath, name) for name in os.listdir(folderpath)]
 all_files = []
 Emotions = []
@@ -71,10 +72,11 @@ for path in filepaths:
     print(Emotions)
     fieldnames = ['Movie_Name','Emotions']
     op={'Movie_Name':path,'Emotions':Emotions }
-    with open(r'ViolenceVi.csv','a') as csv_file:
+    with open(r'Video Emotions\on-violence.csv','a') as csv_file:
+    # with open(r'ViolenceVi.csv','a') as csv_file:
         dictwriter_object = DictWriter(csv_file, fieldnames=fieldnames)
         dictwriter_object.writerow(op)
         csv_file.close()
-    print("*************************************************")
+    print("*****************")
     Emotions*=0
 print("end")
