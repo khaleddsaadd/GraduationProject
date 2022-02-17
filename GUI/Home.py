@@ -11,7 +11,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path("./assets")
+ASSETS_PATH = OUTPUT_PATH / Path("./home_assets")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -19,6 +19,14 @@ def relative_to_assets(path: str) -> Path:
 
 
 window = Tk()
+
+def tosignin():
+    window.destroy()
+    import signin
+    
+def tosignup():
+    window.destroy()
+    import signup
 
 window.geometry("1440x689")
 window.configure(bg = "#FFFFFF")
@@ -65,7 +73,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=50,
     highlightthickness=50,
-    command=lambda: print("button_1 clicked"),
+    command=tosignin,
     relief="flat"
 )
 button_1.place(
@@ -92,7 +100,7 @@ button_2 = Button (
     image=button_image_2,
     borderwidth=20,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=tosignup,
     relief="flat"
 )
 button_2.place(
