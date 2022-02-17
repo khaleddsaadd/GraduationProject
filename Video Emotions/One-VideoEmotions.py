@@ -14,7 +14,7 @@ from collections import Counter
 from SeqMarkovChain import*
 
 count = 0
-videoFile = r"Videos/Demo.mp4"
+videoFile = r"Violence Dataset/Gender Based Violence Awareness Video.mp4"
 cap = cv2.VideoCapture(videoFile)   # capturing the video from the given path
 frameRate = cap.get(5) #frame rate
 x=1

@@ -43,9 +43,9 @@ def func(csvName):
   SeqMarkovChain(f)
 
 
-# print("Violence Dataset Markov Chain ")
-# func('Video Emotions\ViolenceVi.csv')
-
+print("Violence Dataset Markov Chain ")
+func('Video Emotions\ViolenceVi.csv')
+print("--------------------------------------------")
 print("Non Violence Dataset Markov Chain ")
 func('Video Emotions\on-violence.csv')
 
