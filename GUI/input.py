@@ -2,12 +2,15 @@
 # https://github.com/ParthJadhav/Tkinter-Designer
 
 
+from fileinput import filename
 from pathlib import Path
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import *
 from tkinter import filedialog
+from tkvideo import tkvideo
+
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -16,6 +19,11 @@ ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
+
+def vid():
+    window.destroy()
+    import test
+
 
 def browseFiles():
     filename = filedialog.askopenfilename(initialdir = "/",
@@ -28,6 +36,10 @@ def browseFiles():
     # Change label contents
     label_file_explorer.configure(text="File Opened: "+filename)
     print(filename)
+    vid()
+
+
+ 
       
       
 window = Tk()
@@ -35,6 +47,16 @@ window = Tk()
 window.geometry("1440x689")
 window.configure(bg = "#FFFFFF")
 
+# set window title
+# window.title('Video Player')
+# # create label
+# video_label = Label(window)
+# video_label.pack()
+# # read video to display on label
+# player = tkvideo(filename, video_label,
+#                  loop = 1, size = (700, 500))
+# player.play()
+# window.mainloop()
 
 
 label_file_explorer = Label(window,
