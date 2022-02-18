@@ -51,21 +51,13 @@ image_1 = canvas.create_image(
     image=image_image_1
 )
 
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_1 = Button(
-    image=button_image_1,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
-    relief="flat"
-)
-button_1.place(
-    x=60.0,
-    y=73.0,
-    width=35.0,
-    height=1.0
-)
+canvas.create_rectangle(
+    60.0,
+    73.0,
+    95.0,
+    74.0,
+    fill="#000000",
+    outline="")
 
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
@@ -83,20 +75,13 @@ image_3 = canvas.create_image(
     image=image_image_3
 )
 
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
-button_2 = Button(
-    image=button_image_2,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
-    relief="flat"
-)
-button_2.place(
-    x=1276.0,
-    y=65.0,
-    width=62.0,
-    height=21.0
+canvas.create_text(
+    1276.0,
+    65.0,
+    anchor="nw",
+    text="Sign Up",
+    fill="#FFFFFF",
+    font=("Roboto", 18 * -1)
 )
 
 canvas.create_rectangle(
@@ -135,17 +120,28 @@ entry_1.place(
     height=47.0
 )
 
-canvas.create_rectangle(
-    565.0,
-    394.0,
-    907.0,
-    443.0,
-    fill="#F9F8F8",
-    outline="")
+entry_image_2 = PhotoImage(
+    file=relative_to_assets("entry_2.png"))
+entry_bg_2 = canvas.create_image(
+    736.0,
+    418.5,
+    image=entry_image_2
+)
+entry_2 = Entry(
+    bd=0,
+    bg="#F9F8F8",
+    highlightthickness=0
+)
+entry_2.place(
+    x=565.0,
+    y=394.0,
+    width=342.0,
+    height=47.0
+)
 
 canvas.create_text(
     621.0,
-    350.0,
+    329.0,
     anchor="nw",
     text="Email",
     fill="#868686",
@@ -170,13 +166,21 @@ canvas.create_text(
     font=("Roboto", 14 * -1)
 )
 
-canvas.create_rectangle(
-    628.0,
-    497.0,
-    845.0,
-    542.0,
-    fill="#B44E9D",
-    outline="")
+button_image_1 = PhotoImage(
+    file=relative_to_assets("button_1.png"))
+button_1 = Button(
+    image=button_image_1,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_1 clicked"),
+    relief="flat"
+)
+button_1.place(
+    x=628.0,
+    y=497.0,
+    width=217.0,
+    height=45.0
+)
 
 canvas.create_text(
     709.0,
