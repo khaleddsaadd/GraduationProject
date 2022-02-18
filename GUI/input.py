@@ -6,7 +6,8 @@ from pathlib import Path
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from tkinter import *
+from tkinter import filedialog
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -16,12 +17,30 @@ ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-
+def browseFiles():
+    filename = filedialog.askopenfilename(initialdir = "/",
+                                          title = "Select a File",
+                                          filetypes = (("Text files",
+                                                        "*.txt*"),
+                                                       ("all files",
+                                                        "*.*")))
+      
+    # Change label contents
+    label_file_explorer.configure(text="File Opened: "+filename)
+    print(filename)
+      
+      
 window = Tk()
 
 window.geometry("1440x689")
 window.configure(bg = "#FFFFFF")
 
+
+
+label_file_explorer = Label(window,
+                            text = "File Explorer using Tkinter",
+                            width = 100, height = 4,
+                            fg = "blue")
 
 canvas = Canvas(
     window,
@@ -97,6 +116,7 @@ image_5 = canvas.create_image(
     391.0,
     image=image_image_5
 )
+#hena 
 
 canvas.create_rectangle(
     824.0,
@@ -112,7 +132,8 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    text="button_1 clicked",
+    command=browseFiles,
     relief="flat"
 )
 button_1.place(
