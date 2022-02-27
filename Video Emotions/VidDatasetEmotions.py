@@ -17,14 +17,14 @@ from SeqMarkovChain import*
 import csv
 from csv import DictWriter
 
-face_classifier=cv2.CascadeClassifier('Video Emotions/haarcascade_frontalface_default.xml')
-classifier = load_model('Video Emotions/EmotionDetectionModel.h5')
+face_classifier=cv2.CascadeClassifier('Video Emotions/Models/haarcascade_frontalface_default.xml')
+classifier = load_model('Video Emotions/Models/EmotionDetectionModel.h5')
 # face_cascade = cv.CascadeClassifier()
 
 class_labels=['Angry','Happy','Neutral','Sad','Surprise']
 
 #folderpath = r"Violence Dataset" # make sure to put the 'r' in front
-folderpath = r"PreViolenceVideos"
+folderpath = r"NonViolenceVideos"
 filepaths  = [os.path.join(folderpath, name) for name in os.listdir(folderpath)]
 all_files = []
 Emotions = []
@@ -36,7 +36,6 @@ for path in filepaths:
 
     if cap.isOpened() == False:
         print("Error File Not Found")
-
     while cap.isOpened():
         frameId = cap.get(1) #current frame number
         ret,frame= cap.read()
@@ -72,8 +71,7 @@ for path in filepaths:
     print(Emotions)
     fieldnames = ['Movie_Name','Emotions']
     op={'Movie_Name':path,'Emotions':Emotions }
-    with open(r'Video Emotions\previolencedataset.csv','a') as csv_file:
-    # with open(r'ViolenceVi.csv','a') as csv_file:
+    with open(r'Video Emotions\Datasets\final_nonviolence_movies.csv','a') as csv_file:
         dictwriter_object = DictWriter(csv_file, fieldnames=fieldnames)
         dictwriter_object.writerow(op)
         csv_file.close()
