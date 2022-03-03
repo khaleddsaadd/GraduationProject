@@ -1,3 +1,4 @@
+
 from msilib import sequence
 import pandas as pd
 from SeqMarkovChain import*
@@ -7,7 +8,10 @@ import numpy as np
 from collections import Counter
 import numpy as np
 import csv
+import Markov_Chain as MCF
 from csv import DictWriter
+from scipy.spatial import distance
+from math import dist
 class Video(object):
     def __init__(self,csvname):
         self.csvname = csvname
@@ -34,19 +38,55 @@ class Video(object):
             arr.append('Neutral')
             seq=arr[-500:]
             #mc da markov chain l kol film w el variable da byefda taht 3shan yetmeli tany kol mara b kol film
+
             mc = SeqMarkovChain(arr)
-            print("Predicted Sequence for",df.Movie_Name[index])
+
             #predicted da bandah fe function prediction w bageb 400 sequence predicted based 3al ablo
             # w byedfda brdo m3 kol loop
+            
             predicted=self.predictNext(current_state=seq[-1],transition_matrix=mc,
                                 states=['Angry', 'Happy', 'Neutral','Sad','Surprise'], no=400)
+            
+            predicted.append('Surprise')
+            predicted.append('Angry')
+            predicted.append('Happy')
+            predicted.append('Neutral')
+            predicted.append('Sad')
+            predicted.append('Surprise')
+            predicted.append('Angry')
+            predicted.append('Happy')
+            predicted.append('Neutral')
+            predicted.append('Sad')
+
+            print("")
+            print("Predicted Emotions of ", df.Movie_Name[index])
+            print("")
             print(predicted)
-            print("--------------------------------")
+            
+            Mp = SeqMarkovChain(predicted)
+            print("")
+            print(" Markov Chain of Predicted Emotions ")
+            print("")
+
+            print(Mp)
+
+            print("")
+            
+            MC_Violence = MCF.func('Video Emotions\Datasets\\final_violence_movies.csv')
+            MC_NonViolence = MCF.func('Video Emotions\Datasets\\final_nonviolence_movies.csv')
+
+            check= self.checkingViolence(Mp, MC_Violence, MC_NonViolence)
+            print(check)
+
+            print("-------------------------------------------------------------------------------------------------------------------------------------------")
+
             x=x*0
             arr=arr*0
             seq=seq*0
             mc = mc*0
             predicted = predicted*0
+            Mp = Mp*0
+
     def next_state(self, current_state):
         return np.random.choice(
          self.states, 
@@ -65,5 +105,26 @@ class Video(object):
             future_states.append(next_state)
             current_state = next_state
         return future_states
+
+    def checkingViolence(self, Mp, MC_Violence, MC_NonViolence):
+
+
+        predicted_violence_distance = np.linalg.norm(Mp - MC_Violence)
+        print( "Distance between Predicted and Violence :", predicted_violence_distance)
+        
+        predicted_Nonviolence_distance = np.linalg.norm(Mp - MC_NonViolence)
+        print( "Distance between Predicted and Non-Violence :", predicted_Nonviolence_distance)
+        print("")
+        
+        if predicted_violence_distance > predicted_Nonviolence_distance :
+            print(" Prediction : Violence Scene ")
+        else:
+            print(" Prediction : Non-Violence Scene ")
+
+        print("")
+
+
+       
+
 Vv = Video(csvname='Video Emotions\Datasets\\final_previolence_movies.csv')
 Vv.Start()

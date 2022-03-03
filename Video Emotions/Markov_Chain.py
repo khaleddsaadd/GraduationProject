@@ -40,12 +40,19 @@ def func(csvName):
       a= Counter()
 
   #print(f)   
-  print(SeqMarkovChain(f))
+  # print(SeqMarkovChain(f))
+  return SeqMarkovChain(f)
 
 
-print("Violence Dataset Markov Chain ")
-func('Video Emotions\Datasets\old_violence_dataset.csv')
-print("--------------------------------------------")
-print("Non Violence Dataset Markov Chain ")
-func('Video Emotions\Datasets\old_nonviolence_dataset.csv')
+
+# print("Final- Non-Violence Dataset Markov Chain ")
+# func('Video Emotions\Datasets\\final_nonviolence_movies.csv')
+
+# print("Violence Dataset Markov Chain ")
+# func('Video Emotions\Datasets\old_violence_dataset.csv')
+# print("--------------------------------------------")
+# print("Non Violence Dataset Markov Chain ")
+# func('Video Emotions\Datasets\old_nonviolence_dataset.csv')
+
+
 
