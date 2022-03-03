@@ -14,9 +14,8 @@ from scipy.spatial import distance
 from csv import writer
 import os
 from sklearn.metrics import confusion_matrix
+from sklearn import metrics
 
-# for f in os.listdir("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv"):
-# 	print(f)
 
 
 class Video(object):
@@ -150,4 +149,13 @@ df = pd.read_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv
 df["Predection"] = Vv.pred
 df.to_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", index=False)
 
+col_list = ["Actual", "Predection"]
+df = pd.read_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", usecols=col_list)
+
+y_true = df["Actual"]
+y_pred = df["Predection"]
+
+print(confusion_matrix(y_true, y_pred))
+print(metrics.confusion_matrix(y_true, y_pred))
+print(metrics.classification_report(y_true, y_pred))
 
