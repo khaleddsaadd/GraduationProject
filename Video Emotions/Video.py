@@ -11,8 +11,16 @@ import csv
 import Markov_Chain as MCF
 from csv import DictWriter
 from scipy.spatial import distance
-from math import dist
+from csv import writer
+import os
+from sklearn.metrics import confusion_matrix
+
+# for f in os.listdir("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv"):
+# 	print(f)
+
+
 class Video(object):
+    pred=[]
     def __init__(self,csvname):
         self.csvname = csvname
     def Start(self):
@@ -108,7 +116,7 @@ class Video(object):
 
     def checkingViolence(self, Mp, MC_Violence, MC_NonViolence):
 
-
+ 
         predicted_violence_distance = np.linalg.norm(Mp - MC_Violence)
         print( "Distance between Predicted and Violence :", predicted_violence_distance)
         
@@ -118,13 +126,28 @@ class Video(object):
         
         if predicted_violence_distance > predicted_Nonviolence_distance :
             print(" Prediction : Violence Scene ")
+            self.pred.append("V")
+
         else:
             print(" Prediction : Non-Violence Scene ")
+            self.pred.append("N")
 
         print("")
+
 
 
        
 
 Vv = Video(csvname='Video Emotions\Datasets\\final_previolence_movies.csv')
 Vv.Start()
+
+
+# df = pd.read_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv")
+# df["Predection"] = ""
+# df.to_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", index=False)
+
+df = pd.read_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv")
+df["Predection"] = Vv.pred
+df.to_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", index=False)
+
+
