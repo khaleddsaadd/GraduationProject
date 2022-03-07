@@ -43,7 +43,7 @@ class Video(object):
             arr.append('Angry')
             arr.append('Happy')
             arr.append('Neutral')
-            seq=arr[-500:]
+            seq=arr[-700:]
             #mc da markov chain l kol film w el variable da byefda taht 3shan yetmeli tany kol mara b kol film
 
             mc = SeqMarkovChain(arr)
