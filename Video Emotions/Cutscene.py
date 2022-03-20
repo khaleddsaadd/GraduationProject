@@ -1,7 +1,7 @@
 # Import everything needed to edit video clips 
 from moviepy.editor import *
      
-clip = VideoFileClip("Video Emotions\\Jamesbond.mp4")       
+clip = VideoFileClip("VideoTest.mp4")       
 
 #clip = clip.subclip(0, 40) 
 

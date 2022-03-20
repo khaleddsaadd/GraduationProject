@@ -45,8 +45,11 @@ def func(csvName):
 
 
 
-# print("Final- Non-Violence Dataset Markov Chain ")
-# func('Video Emotions\Datasets\\final_nonviolence_movies.csv')
+print("Final- Non-Violence Dataset Markov Chain ")
+print(func('Video Emotions\Datasets\\final_nonviolence_movies.csv'))
+
+print("Final- Violence Dataset Markov Chain ")
+print(func('Video Emotions\Datasets\\final_violence_movies.csv'))
 
 # print("Violence Dataset Markov Chain ")
 # func('Video Emotions\Datasets\old_violence_dataset.csv')

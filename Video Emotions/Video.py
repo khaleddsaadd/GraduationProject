@@ -43,7 +43,7 @@ class Video(object):
             arr.append('Angry')
             arr.append('Happy')
             arr.append('Neutral')
-            seq=arr[-700:]
+            seq=arr[-900:]
             #mc da markov chain l kol film w el variable da byefda taht 3shan yetmeli tany kol mara b kol film
 
             mc = SeqMarkovChain(arr)
@@ -80,7 +80,7 @@ class Video(object):
             print("")
             
             MC_Violence = MCF.func('Video Emotions\Datasets\\final_violence_movies.csv')
-            MC_NonViolence = MCF.func('Video Emotions\Datasets\\final_nonviolence_movies.csv')
+            MC_NonViolence = MCF.func('Video Emotions\Datasets\\me_final_nonviolence_movies.csv')
 
             check= self.checkingViolence(Mp, MC_Violence, MC_NonViolence)
             print(check)
@@ -145,12 +145,12 @@ Vv.Start()
 # df["Predection"] = ""
 # df.to_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", index=False)
 
-df = pd.read_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv")
+df = pd.read_csv("Video Emotions/predvsact.csv")
 df["Predection"] = Vv.pred
-df.to_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", index=False)
+df.to_csv("Video Emotions/predvsact.csv", index=False)
 
 col_list = ["Actual", "Predection"]
-df = pd.read_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", usecols=col_list)
+df = pd.read_csv("Video Emotions/predvsact.csv", usecols=col_list)
 
 y_true = df["Actual"]
 y_pred = df["Predection"]
