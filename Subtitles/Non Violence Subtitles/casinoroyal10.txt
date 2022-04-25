@@ -1,0 +1,418 @@
+491
+01:09:16,360 --> 01:09:18,990
+- Good evening, sir.
+- Good evening.
+
+492
+01:09:20,930 --> 01:09:22,590
+Thank you.
+
+493
+01:09:33,380 --> 01:09:35,500
+And you must be
+Mr. Bliss' replacement.
+
+494
+01:09:35,710 --> 01:09:37,810
+Welcome, Mr. Beech.
+
+495
+01:09:39,020 --> 01:09:41,810
+Or is that Bond?
+I'm a little confused.
+
+496
+01:09:42,020 --> 01:09:44,450
+Well, we wouldn't want that,
+would we?
+
+497
+01:09:53,900 --> 01:09:55,890
+Ladies and gentlemen, welcome.
+
+498
+01:09:56,100 --> 01:09:58,690
+As you know, the game is no-limit
+hold 'em poker.
+
+499
+01:09:58,900 --> 01:10:00,840
+Five communal cards,
+two in the hole.
+
+500
+01:10:01,300 --> 01:10:04,070
+Monsieur Mendel here represents
+the Basel Bank, Switzerland...
+
+501
+01:10:04,270 --> 01:10:05,500
+...holding the stakes.
+
+502
+01:10:07,810 --> 01:10:10,340
+You have each deposited
+$ 10 million buy-in.
+
+503
+01:10:10,550 --> 01:10:13,450
+A further buy-in of 5 million
+can be made by electronic transfer.
+
+504
+01:10:13,650 --> 01:10:15,740
+The money will remain in escrow
+until I return...
+
+505
+01:10:15,950 --> 01:10:18,680
+...and the winner of the contest
+enters his or her password...
+
+506
+01:10:18,890 --> 01:10:20,050
+...into the encryptor...
+
+507
+01:10:20,260 --> 01:10:21,990
+...whereupon the entire sum
+will be wired...
+
+508
+01:10:22,190 --> 01:10:24,320
+...to any bank account
+in the world you nominate.
+
+509
+01:10:24,890 --> 01:10:26,620
+Mr. Bond?
+
+510
+01:10:27,060 --> 01:10:28,220
+We proceed alphabetically.
+
+511
+01:10:28,430 --> 01:10:30,870
+Please be so kind as to enter
+a password of your choice.
+
+512
+01:10:39,280 --> 01:10:40,440
+Six letters or more.
+
+513
+01:10:53,520 --> 01:10:56,190
+High card for dealer position.
+
+514
+01:11:03,230 --> 01:11:04,530
+It's Signor Gallardo.
+
+515
+01:11:04,730 --> 01:11:07,760
+Mr. Kaminofsky is
+the small blind, $5000...
+
+516
+01:11:07,970 --> 01:11:11,430
+...and Mr. Fukutu, the big blind,
+$ 10,000.
+
+517
+01:11:13,540 --> 01:11:15,570
+Well, enjoy the game.
+
+518
+01:11:39,440 --> 01:11:40,530
+Four players.
+
+519
+01:11:43,140 --> 01:11:44,470
+It's your bet.
+
+520
+01:11:46,010 --> 01:11:47,480
+Check.
+
+521
+01:11:47,680 --> 01:11:49,470
+Check.
+
+522
+01:11:53,780 --> 01:11:55,840
+Bet. Fifty thousand.
+
+523
+01:12:09,070 --> 01:12:10,330
+Call.
+
+524
+01:12:13,600 --> 01:12:14,870
+Fold.
+
+525
+01:12:17,070 --> 01:12:19,470
+Fold. Heads up.
+
+526
+01:12:23,780 --> 01:12:25,210
+Monsieur Le Chiffre.
+
+527
+01:12:36,730 --> 01:12:39,290
+Bet. One hundred thousand.
+
+528
+01:12:42,400 --> 01:12:45,390
+Weren't you supposed to enter
+so the others could see you?
+
+529
+01:12:45,600 --> 01:12:48,630
+Was I? Forgive me.
+
+530
+01:12:49,170 --> 01:12:51,370
+Good luck, darling.
+
+531
+01:12:55,180 --> 01:12:57,580
+It's up to you, Monsieur Bond.
+
+532
+01:12:59,550 --> 01:13:00,740
+Monsieur Bond?
+
+533
+01:13:00,950 --> 01:13:03,610
+Oh, I'm sorry. What was the bet?
+A hundred thousand?
+
+534
+01:13:04,420 --> 01:13:06,150
+Call.
+
+535
+01:13:11,290 --> 01:13:12,450
+Hello.
+
+536
+01:13:12,660 --> 01:13:16,260
+I suppose I don't have to tell you
+how beautiful you look.
+
+537
+01:13:16,470 --> 01:13:19,590
+Half the people at that table
+are still watching you.
+
+538
+01:13:19,800 --> 01:13:20,770
+Champagne.
+
+539
+01:13:24,470 --> 01:13:26,340
+Monsieur Le Chiffre.
+
+540
+01:13:37,420 --> 01:13:38,720
+Bet. Two hundred thousand.
+
+541
+01:13:45,130 --> 01:13:48,890
+Monsieur, you have been called.
+Showdown, please.
+
+542
+01:13:50,570 --> 01:13:53,730
+A full house to Monsieur Le Chiffre.
+Deuces full of nines.
+
+543
+01:13:53,940 --> 01:13:55,730
+Mr. Bond?
+
+544
+01:13:58,640 --> 01:13:59,970
+Fold.
+
+545
+01:14:07,350 --> 01:14:09,680
+Send the barman over, please.
+
+546
+01:14:17,830 --> 01:14:20,630
+A dry martini. Wait.
+
+547
+01:14:20,830 --> 01:14:22,530
+Three measures Gordon's,
+one of vodka...
+
+548
+01:14:22,730 --> 01:14:24,560
+...half of Kina Lillet,
+shake it over ice...
+
+549
+01:14:24,770 --> 01:14:27,600
+- ...then add a thin slice of lemon peel.
+- Yes, sir.
+
+550
+01:14:27,800 --> 01:14:30,670
+- You know, I'll have one of those.
+- So will I.
+
+551
+01:14:31,640 --> 01:14:32,870
+Certainly.
+
+552
+01:14:33,810 --> 01:14:37,710
+My friend, bring me one as well.
+Keep the fruit.
+
+553
+01:14:38,580 --> 01:14:39,910
+That's it?
+
+554
+01:14:41,220 --> 01:14:42,810
+Anyone want to play poker now?
+
+555
+01:14:43,020 --> 01:14:44,180
+Someone's in a hurry.
+
+556
+01:14:53,200 --> 01:14:55,130
+Would you excuse me?
+
+557
+01:15:08,640 --> 01:15:09,980
+You taste nice.
+
+558
+01:15:10,180 --> 01:15:13,110
+- I thought we dispensed with covers.
+- No.
+
+559
+01:15:13,320 --> 01:15:17,010
+We dispensed with one that was
+of no use and created another that is.
+
+560
+01:15:17,220 --> 01:15:18,740
+- Is he watching?
+- Yes.
+
+561
+01:15:18,960 --> 01:15:20,010
+Good.
+
+562
+01:15:20,220 --> 01:15:22,990
+This is me in character pissed off
+because you're losing so fast...
+
+563
+01:15:23,190 --> 01:15:24,960
+...we won't be here past midnight.
+
+564
+01:15:25,160 --> 01:15:28,130
+Oddly, my character's feelings
+mirror my own.
+
+565
+01:15:28,760 --> 01:15:30,320
+Check.
+
+566
+01:15:30,970 --> 01:15:32,800
+- You know, that's not half bad.
+- Up to you.
+
+567
+01:15:33,000 --> 01:15:34,900
+I'm gonna have to think up
+a name for that.
+
+568
+01:15:36,440 --> 01:15:39,000
+It was worth it to discover his tell.
+
+569
+01:15:39,340 --> 01:15:40,600
+What do you mean?
+
+570
+01:15:40,980 --> 01:15:43,000
+The twitch he has to hide
+when he bluffs.
+
+571
+01:15:43,210 --> 01:15:47,340
+- Bluffs? He had the best hand.
+- Which he got on the last card.
+
+572
+01:15:47,550 --> 01:15:49,750
+The odds against were 23-to-1,
+and he'd know that.
+
+573
+01:15:49,950 --> 01:15:51,920
+When he did his first raise
+he had nothing.
+
+574
+01:15:52,120 --> 01:15:53,650
+Winning was blind luck.
+
+575
+01:15:53,860 --> 01:15:55,690
+- Did you get the bug?
+- Yes.
+
+576
+01:15:55,890 --> 01:15:57,760
+Bet. One hundred thousand.
+
+577
+01:15:57,960 --> 01:15:59,480
+Thank you.
+
+578
+01:16:01,300 --> 01:16:02,730
+It's your play, Monsieur Fukutu.
+
+579
+01:16:02,930 --> 01:16:05,960
+Maybe he can actually pull this off.
+
+580
+01:16:06,800 --> 01:16:08,240
+Call.
+
+581
+01:16:09,840 --> 01:16:11,810
+Monsieur Le Chiffre.
+
+582
+01:16:14,340 --> 01:16:16,870
+Ladies and gentlemen,
+Mesdames, Messieurs...
+
+583
+01:16:17,080 --> 01:16:18,840
+...we've now been
+playing for four hours.
+
+584
+01:16:19,050 --> 01:16:23,510
+It's time for a short break.
+We will resume play in one hour.
+
