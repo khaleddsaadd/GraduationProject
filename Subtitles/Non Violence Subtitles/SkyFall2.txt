@@ -1,0 +1,139 @@
+
+188
+00:19:42,598 --> 00:19:44,015
+(CELL PHONE RlNGlNG)
+
+189
+00:19:46,644 --> 00:19:47,811
+Yes?
+
+190
+00:19:49,438 --> 00:19:50,480
+Now?
+
+191
+00:19:52,441 --> 00:19:56,444
+Ma'am, alert from Q-Branch.
+Someone's trying to decrypt
+the stolen hard drive.
+
+192
+00:19:56,862 --> 00:19:58,947
+We're tracing
+the encryption signal.
+
+193
+00:19:59,490 --> 00:20:00,615
+Localizing now.
+
+194
+00:20:03,703 --> 00:20:05,120
+Centering in the UK.
+
+195
+00:20:07,289 --> 00:20:08,540
+London.
+
+196
+00:20:08,874 --> 00:20:10,625
+Get us back to base
+as soon as possible.
+
+197
+00:20:12,670 --> 00:20:14,963
+(SlREN WAlLlNG)
+
+198
+00:20:17,967 --> 00:20:19,134
+lt's coming from Ml6.
+
+199
+00:20:19,301 --> 00:20:20,468
+What?
+
+200
+00:20:20,553 --> 00:20:22,762
+The data packet is
+linking to our network.
+
+201
+00:20:23,472 --> 00:20:25,473
+Correction.
+This is behind our firewall.
+
+202
+00:20:26,142 --> 00:20:27,100
+We should shut down.
+
+203
+00:20:27,226 --> 00:20:28,184
+No, track it.
+
+204
+00:20:28,644 --> 00:20:30,395
+We have to know
+where it's coming from.
+
+205
+00:20:30,813 --> 00:20:32,313
+Strip the headers.
+Trace the source.
+
+206
+00:20:32,648 --> 00:20:34,357
+How the hell did they
+get into our system?
+
+207
+00:20:34,984 --> 00:20:36,317
+Getting trace back now.
+
+208
+00:20:41,240 --> 00:20:42,490
+lt appears. . .
+
+209
+00:20:43,993 --> 00:20:45,577
+lt appears to be
+your computer, ma'am.
+
+210
+00:20:46,203 --> 00:20:47,328
+Shut it down.
+
+211
+00:20:48,164 --> 00:20:49,831
+(TAUNTlNG MUSlC PLAYS)
+
+212
+00:20:51,834 --> 00:20:53,168
+(MOCKlNG LAUGHTER)
+
+213
+00:20:53,377 --> 00:20:54,502
+What is this?
+
+214
+00:21:03,179 --> 00:21:04,971
+(SlREN BLARlNG)
+
+215
+00:21:14,482 --> 00:21:15,482
+(SlGHS)
+
+216
+00:21:15,733 --> 00:21:17,859
+For God's sake!
+
+217
+00:21:19,904 --> 00:21:21,404
+Just get out of the way!
+
+218
+00:21:22,281 --> 00:21:24,032
+Don't you recognize the car?
+Madam.
+
+219
+00:21:24,366 --> 00:21:26,034
+(EXPLOSlON THUNDERS)
