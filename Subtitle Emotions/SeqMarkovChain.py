@@ -10,5 +10,4 @@ def SeqMarkovChain(seq):
     print(trans_mat)
     # normalise by occurences and save values to get transition matrix
     trans_mat = trans_mat.div(trans_mat.sum(axis=1), axis=0).values
-    print("Markov Transition Chain")
-    print(trans_mat)
+    return trans_mat
