@@ -41,7 +41,7 @@ def func(csvName):
 
   #print(f)   
   # print(SeqMarkovChain(f))
-  return SeqMarkovChain(f)
+  return SeqMarkovChain(arr)
 
 
 
