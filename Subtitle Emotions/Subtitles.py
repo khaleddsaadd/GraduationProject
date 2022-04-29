@@ -1,4 +1,3 @@
-
 from msilib import sequence
 import pandas as pd
 from SeqMarkovChain import*
@@ -18,7 +17,8 @@ from sklearn import metrics
 
 
 class Subtitles():
-    def __init__(self,csvname):
+    pred=[]
+    def _init_(self,csvname):
         self.csvname = csvname
     def Start(self):
         df = pd.read_csv(self.csvname)
@@ -72,6 +72,16 @@ class Subtitles():
             print(Mp)
 
             print("")
+                        
+            MC_Violence = MCF.func('Subtitle Emotions\Datasets\Violence_Subtitles_Dataset.csv')
+            MC_NonViolence = MCF.func('Subtitle Emotions\Datasets\NonViolence_Subtitles_Dataset.csv')
+
+            check= self.checkingViolence(Mp, MC_Violence, MC_NonViolence)
+            print(check)
+
+            print("-------------------------------------------------------------------------------------------------------------------------------------------")
+
+
             x=x*0
             arr=arr*0
             mc = mc*0
@@ -83,6 +93,7 @@ class Subtitles():
          self.states, 
          p=self.transition_matrix[self.index_dict[current_state], :]
         )
+
     def predictNext(self,current_state,transition_matrix, states, no=30):
         self.transition_matrix = np.atleast_2d(transition_matrix)
         self.states = states
@@ -96,6 +107,27 @@ class Subtitles():
             future_states.append(next_state)
             current_state = next_state
         return future_states
+
+    def checkingViolence(self, Mp, MC_Violence, MC_NonViolence):
+
+ 
+        predicted_violence_distance = np.linalg.norm(Mp - MC_Violence)
+        print( "Distance between Predicted and Violence :", predicted_violence_distance)
+        
+        predicted_Nonviolence_distance = np.linalg.norm(Mp - MC_NonViolence)
+        print( "Distance between Predicted and Non-Violence :", predicted_Nonviolence_distance)
+        print("")
+        
+        if predicted_violence_distance > predicted_Nonviolence_distance :
+            print(" Prediction : Violence Scene ")
+            self.pred.append("V")
+
+        else:
+            print(" Prediction : Non-Violence Scene ")
+            self.pred.append("N")
+
+        print("")
+
         
 
 Vv = Subtitles(csvname='Subtitle Emotions\Datasets\PreViolence_Subtitles_Dataset.csv')
