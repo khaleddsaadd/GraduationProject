@@ -134,3 +134,21 @@ class Subtitles(object):
 
 Vv = Subtitles(csvname='Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv')
 Vv.Start()
+
+# df = pd.read_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv")
+# df["Predection"] = ""
+# df.to_csv("C:/xampp/htdocs/GraduationProject/Video Emotions/predvsact.csv", index=False)
+
+df = pd.read_csv("Subtitle Emotions/predvsactS.csv")
+df["Predection"] = Vv.pred
+df.to_csv("Subtitle Emotions/predvsactS.csv", index=False)
+
+col_list = ["Actual", "Predection"]
+df = pd.read_csv("Subtitle Emotions/predvsactS.csv", usecols=col_list)
+
+y_true = df["Actual"]
+y_pred = df["Predection"]
+
+print(confusion_matrix(y_true, y_pred))
+print(metrics.confusion_matrix(y_true, y_pred))
+print(metrics.classification_report(y_true, y_pred))
