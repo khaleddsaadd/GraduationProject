@@ -16,9 +16,9 @@ from sklearn.metrics import confusion_matrix
 from sklearn import metrics
 
 
-class Subtitles():
+class Subtitles(object):
     pred=[]
-    def _init_(self,csvname):
+    def __init__(self,csvname):
         self.csvname = csvname
     def Start(self):
         df = pd.read_csv(self.csvname)
@@ -54,10 +54,12 @@ class Subtitles():
             predicted.append('Angry')
             predicted.append('Happy')
             predicted.append('Sad')
+            predicted.append('Fear')
             predicted.append('Surprise')
             predicted.append('Angry')
             predicted.append('Happy')
             predicted.append('Sad')
+            predicted.append('Fear')
 
             print("")
             print("Predicted Emotions of ", df.Movie_Name[index])
@@ -73,8 +75,8 @@ class Subtitles():
 
             print("")
                         
-            MC_Violence = MCF.func('Subtitle Emotions\Datasets\Violence_Subtitles_Dataset.csv')
-            MC_NonViolence = MCF.func('Subtitle Emotions\Datasets\NonViolence_Subtitles_Dataset.csv')
+            MC_Violence = MCF.func('Subtitle Emotions\Datasets\\Violence_Subtitles_Dataset.csv')
+            MC_NonViolence = MCF.func('Subtitle Emotions\Datasets\\NonViolence_Subtitles_Dataset.csv')
 
             check= self.checkingViolence(Mp, MC_Violence, MC_NonViolence)
             print(check)
@@ -130,5 +132,5 @@ class Subtitles():
 
         
 
-Vv = Subtitles(csvname='Subtitle Emotions\Datasets\PreViolence_Subtitles_Dataset.csv')
+Vv = Subtitles(csvname='Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv')
 Vv.Start()

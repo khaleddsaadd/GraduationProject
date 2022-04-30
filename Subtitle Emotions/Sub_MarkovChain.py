@@ -25,10 +25,10 @@ def func(csvName):
     return SeqMarkovChain(arr)
 
 print("Pre-Violence Subtitles Dataset")
-print(func('Subtitle Emotions\Datasets\PreViolence_Subtitles_Dataset.csv'))
+print(func('Subtitle Emotions\Datasets\\Violence_Subtitles_Dataset.csv'))
 
-print("Post-Violence Subtitles Dataset")
-print(func('Subtitle Emotions\Datasets\PostViolence_Subtitles_Dataset.csv'))
+# print("Post-Violence Subtitles Dataset")
+# print(func('Subtitle Emotions\Datasets\PostViolence_Subtitles_Dataset.csv'))
 
 # print("Violence Subtitles Dataset")
 # print(func('Subtitle Emotions\Datasets\Violence_Subtitles_Dataset.csv'))

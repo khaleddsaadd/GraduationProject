@@ -7,9 +7,11 @@ import csv
 from csv import DictWriter
 from SeqMarkovChain import*
 import nltk
+print("Test")
+
 nltk.download('omw-1.4')
 
-folderpath = r"Subtitles_Final_Dataset/PREVIOLENCE SUBTITLES" # make sure to put the 'r' in front
+folderpath = r"Subtitles_Final_Dataset/Violence Subtitles" # make sure to put the 'r' in front
 filepaths  = [os.path.join(folderpath, name) for name in os.listdir(folderpath)]
 all_files = []
 S=[]
@@ -37,13 +39,13 @@ for path in filepaths:
         max_key1 = max(a, key=a.get)
         f.append(max_key1)
         a= Counter()
-    print("\n*************************************************************************************************")
-    print("Minimized Sequence ",f) 
+    # print("\n*************************************************************************************************")
+    # print("Minimized Sequence ",f) 
 
     fieldnames = ['Movie_Name','Emotions']
     op={'Movie_Name':path,'Emotions':emotions }
 
-    with open(r'Subtitle Emotions\Datasets\PreViolence_Subtitles_Dataset.csv','a') as csv_file:
+    with open(r'Subtitle Emotions\Datasets\Violence_Subtitles_Dataset.csv','a') as csv_file:
         dictwriter_object = DictWriter(csv_file, fieldnames=fieldnames)
         dictwriter_object.writerow(op)
         csv_file.close()
