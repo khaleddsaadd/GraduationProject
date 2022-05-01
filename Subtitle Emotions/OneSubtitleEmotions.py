@@ -22,7 +22,7 @@ def func (subtitlefile):
     for Emotion in S:
         max_key=max(te.get_emotion(Emotion),key=te.get_emotion(Emotion).get)
         emotions.append(max_key)
-    print("Original Sequence ",emotions)
+    # print("Original Sequence ",emotions)
     a= Counter()
     b = 0
     n = 5
@@ -37,8 +37,4 @@ def func (subtitlefile):
         a= Counter()
     # print("\n*************************************************************************************************")
     # print("Minimized Sequence ",f) 
-
-    S*= 0
-    emotions*=0
-    f*=0
-    print("---------------------------------------------------------------------------")
+    return emotions

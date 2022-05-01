@@ -10,11 +10,15 @@ from tkinter import *
 from tkinter import filedialog
 from tkvideo import tkvideo
 
+import sys
+  
+sys.path.append('Subtitle Emotions')
+
+from OneSubtitleEmotions import func
 
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
-
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
@@ -34,7 +38,7 @@ def PlayVideo(VidName):
     root.mainloop()
 
 
-def browseFiles():
+def browseMovie():
     filename = filedialog.askopenfilename(initialdir = "/",
                                           title = "Select a File",
                                           filetypes = (("Text files",
@@ -45,21 +49,37 @@ def browseFiles():
     # Change label contents
     label_file_explorer.configure(text="File Opened: "+filename)
     print(filename)
-    PlayVideo(filename)
+    # PlayVideo(filename)
 
+def browseSubtitles():
+    SubtitleName = filedialog.askopenfilename(initialdir = "/",
+                                          title = "Select a File",
+                                          filetypes = (("Text files",
+                                                        "*.txt*"),
+                                                       ("all files",
+                                                        "*.*")))
+      
+    # Change label contents
+    label_file_explorer_2.configure(text="File Opened: "+SubtitleName)
+    print(func(SubtitleName))
 
  
-      
       
 window = Tk()
 
 window.geometry("1440x689")
 window.configure(bg = "#FFFFFF")
 
+
 label_file_explorer = Label(window,
                             text = "File Explorer using Tkinter",
                             width = 100, height = 4,
                             fg = "blue")
+label_file_explorer_2 = Label(window,
+                            text = "File Explorer using Tkinter",
+                            width = 100, height = 4,
+                            fg = "blue")
+
 
 canvas = Canvas(
     window,
@@ -137,6 +157,8 @@ image_5 = canvas.create_image(
 )
 #hena 
 
+
+
 canvas.create_rectangle(
     824.0,
     453.0,
@@ -144,6 +166,7 @@ canvas.create_rectangle(
     510.0,
     fill="#FFFFFF",
     outline="")
+
 #Upload Button
 button_image_1 = PhotoImage(
     file=relative_to_assets("image_6.png"))
@@ -152,7 +175,7 @@ button_1 = Button(
     borderwidth=0,
     highlightthickness=0,
     text="button_1 clicked",
-    command=browseFiles,
+    command=browseMovie,
     relief="flat"
 )
 button_1.place(
@@ -161,6 +184,33 @@ button_1.place(
     width=88.0,
     height=50.0
 )
+
+
+
+canvas.create_rectangle(
+    824.0,
+    453.0,
+    1267.0,
+    610.0,
+    fill="#FFFFFF",
+    outline="")    
+button_image_2 = PhotoImage(
+    file=relative_to_assets("image_6.png"))
+button_2 = Button(
+    image=button_image_2,
+    borderwidth=0,
+    highlightthickness=0,
+    text="button_2 clicked",
+    command=browseSubtitles,
+    relief="flat"
+)
+button_2.place(
+    x=1177.0,
+    y=550.0,
+    width=88.0,
+    height=50.0
+)
+
 
 window.resizable(False, False)
 window.mainloop()
