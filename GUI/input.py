@@ -8,6 +8,7 @@ from pathlib import Path
 # Explicit imports to satisfy Flake8
 from tkinter import *
 from tkinter import filedialog
+from turtle import clear
 from tkvideo import tkvideo
 
 import sys
@@ -63,7 +64,19 @@ def browseSubtitles():
     label_file_explorer_2.configure(text="File Opened: "+SubtitleName)
     print(func(SubtitleName))
 
- 
+    div_emotions=func(SubtitleName)
+    count=0
+    three_emotions=[]
+    for x in div_emotions:
+        if count < 3:
+         three_emotions.append(x)
+         count+=1
+        else : 
+         print(three_emotions)
+         three_emotions.clear()
+         count=0
+    
+
       
 window = Tk()
 
