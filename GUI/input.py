@@ -4,22 +4,18 @@
 
 from fileinput import filename
 from pathlib import Path
-
 # Explicit imports to satisfy Flake8
 from tkinter import *
 from tkinter import filedialog
 from turtle import clear
 from tkvideo import tkvideo
-
 import sys
-  
 sys.path.append('Subtitle Emotions')
-
 from OneSubtitleEmotions import func
-
-
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
+test = 'z'
+
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
@@ -42,14 +38,13 @@ def PlayVideo(VidName):
 def browseMovie():
     filename = filedialog.askopenfilename(initialdir = "/",
                                           title = "Select a File",
-                                          filetypes = (("Text files",
-                                                        "*.txt*"),
+                                          filetypes = (("video files",
+                                                        "*.mp4*"),
                                                        ("all files",
                                                         "*.*")))
-      
-    # Change label contents
-    label_file_explorer.configure(text="File Opened: "+filename)
-    print(filename)
+    if filename != "":
+        canvas.itemconfig(MovieLabel, text=filename)
+        print(filename)
     # PlayVideo(filename)
 
 def browseSubtitles():
@@ -59,29 +54,28 @@ def browseSubtitles():
                                                         "*.txt*"),
                                                        ("all files",
                                                         "*.*")))
-      
-    # Change label contents
-    label_file_explorer_2.configure(text="File Opened: "+SubtitleName)
-    print(func(SubtitleName))
+    if SubtitleName != "":
+        canvas.itemconfig(SubtitleLabel, text=SubtitleName)
+        div_emotions=func(SubtitleName)
+        count=0
+        three_emotions=[]
+        for x in div_emotions:
+            if count < 3:
+                three_emotions.append(x)
+                count+=1
+            else : 
+                print(three_emotions)
+                three_emotions.clear()
+                count=0
+        
 
-    div_emotions=func(SubtitleName)
-    count=0
-    three_emotions=[]
-    for x in div_emotions:
-        if count < 3:
-         three_emotions.append(x)
-         count+=1
-        else : 
-         print(three_emotions)
-         three_emotions.clear()
-         count=0
-    
 
-      
+ 
 window = Tk()
 
 window.geometry("1440x689")
 window.configure(bg = "#FFFFFF")
+
 
 
 label_file_explorer = Label(window,
@@ -112,6 +106,7 @@ image_1 = canvas.create_image(
     344.0,
     image=image_image_1
 )
+
 
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
@@ -224,6 +219,38 @@ button_2.place(
     height=50.0
 )
 
+MovieLabel = canvas.create_text(
+    950.0,
+    490.0,
+    anchor="nw",
+    text="Upload Movie File\n",
+    fill="#10105E",
+    font=("Roboto Thin", 14 * -1)
+)
 
-window.resizable(False, False)
+SubtitleLabel = canvas.create_text(
+    950.0,
+    570.0,
+    anchor="nw",
+    text="Upload Subtitles File\n",
+    fill="#10105E",
+    font=("Roboto Thin", 14 * -1)
+)
+
+
+Start = Button(
+    borderwidth=0,
+    highlightthickness=0,
+    text="button_2 clicked",
+    command=browseSubtitles,
+    relief="flat"
+)
+button_2.place(
+    x=1177.0,
+    y=550.0,
+    width=88.0,
+    height=50.0
+)
+
+
 window.mainloop()
