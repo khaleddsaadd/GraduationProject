@@ -4,7 +4,7 @@ import re
 import nltk
 import numpy as np
 
-def func(csvName):
+def MarkovModel(csvName):
     df = pd.read_csv(csvName)
     df['Emotions'] =  df['Emotions'].apply(lambda x: x.replace('[','').replace(']','')) 
     df['Emotions'] =  df['Emotions'].apply(lambda x: x.replace('"','').replace('"','')) 
@@ -25,10 +25,10 @@ def func(csvName):
     return SeqMarkovChain(arr)
 
 print("Violence Subtitles Dataset")
-print(func('Subtitle Emotions\Datasets\\Violence_Subtitles_Dataset.csv'))
+print(MarkovModel('Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv'))
 
 # print("Post-Violence Subtitles Dataset")
 # print(func('Subtitle Emotions\Datasets\PostViolence_Subtitles_Dataset.csv'))
 
 print("Non Violence Subtitles Dataset")
-print(func('Subtitle Emotions\Datasets\\NonViolence_Subtitles_Dataset.csv'))
+print(MarkovModel('Subtitle Emotions\Datasets\\NonViolence_Subtitles_Dataset.csv'))

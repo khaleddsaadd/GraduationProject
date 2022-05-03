@@ -11,7 +11,7 @@ from turtle import clear
 from tkvideo import tkvideo
 import sys
 sys.path.append('Subtitle Emotions')
-from OneSubtitleEmotions import func
+from OneSubtitleEmotions import OneSubtitleEmotions
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
 test = 'z'
@@ -56,7 +56,8 @@ def browseSubtitles():
                                                         "*.*")))
     if SubtitleName != "":
         canvas.itemconfig(SubtitleLabel, text=SubtitleName)
-        div_emotions=func(SubtitleName)
+        print(OneSubtitleEmotions(SubtitleName))
+        div_emotions=OneSubtitleEmotions(SubtitleName)
         count=0
         three_emotions=[]
         for x in div_emotions:
@@ -65,6 +66,7 @@ def browseSubtitles():
                 count+=1
             else : 
                 print(three_emotions)
+
                 three_emotions.clear()
                 count=0
         

@@ -10,7 +10,7 @@ import nltk
 nltk.download('omw-1.4')
 
 
-def func (subtitlefile):
+def OneSubtitleEmotions (subtitlefile):
     S=[]
     emotions=[]
     i=0
