@@ -24,6 +24,18 @@ def FindMaxLength(A, B):
     return maxm
  
  
+def match(uploaded):
+    # print(uploaded)
+    Pre_SubSeq = DatasetFullSeq('Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv')
+    print(FindMaxLength(Pre_SubSeq, uploaded))
+    Number = FindMaxLength(Pre_SubSeq, uploaded)
+    if Number <= 20 and Number >=15:
+        print("Pre Violence")
+        Number = 0
+    else:
+        print("Non Violence")
+        Number = 0
 
+        
 # test=['Happy', 'Surprise', 'Happy', 'Happy', 'Happy', 'Happy', 'Sad', 'Happy']
 # match(test)
