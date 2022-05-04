@@ -12,6 +12,8 @@ from tkvideo import tkvideo
 import sys
 sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
+from matching_uploaded_pre import match
+
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
 test = 'z'
@@ -56,17 +58,18 @@ def browseSubtitles():
                                                         "*.*")))
     if SubtitleName != "":
         canvas.itemconfig(SubtitleLabel, text=SubtitleName)
-        print(OneSubtitleEmotions(SubtitleName))
+        print("Loading...")
+        # print(OneSubtitleEmotions(SubtitleName))
         div_emotions=OneSubtitleEmotions(SubtitleName)
         count=0
         three_emotions=[]
         for x in div_emotions:
-            if count < 3:
+            if count < 20:
                 three_emotions.append(x)
                 count+=1
             else : 
-                print(three_emotions)
-
+                # print(three_emotions)
+                match(three_emotions)
                 three_emotions.clear()
                 count=0
         
