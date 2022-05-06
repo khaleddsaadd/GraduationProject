@@ -5,17 +5,13 @@
 from cgitb import text
 from email import message
 import tkinter.font as font
-
 from regex import E, P
 import pyrebase
 import json
 from tkinter import messagebox
 from tkinter.ttk import *
-
 from urllib3.exceptions import HTTPError as BaseHTTPError
-
 from pathlib import Path
-
 from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
@@ -40,22 +36,30 @@ def SignUp():
     'messagingSenderId': "969307424804",
     'appId': "1:969307424804:web:f6706080c47108567430b1",
     'measurementId': "G-FQRT3VDG5B"}
-   
+    global my_text
+    global my_text_2
+
     firebase = pyrebase.initialize_app(config)
     auth = firebase.auth()
-   
+
     email = entry_1.get()
     password = entry_2.get()
+
     if not email:
-        print("Email is empty")
+         my_text = "Please Enter An Email"
+         EmailErr()
     elif not password:
-        print("Password is empty")
+        my_text = ""
+        EmailErr()
+        my_text_2 = "Please Enter A Password"
+        PassErr()
     else:
         try:
             user = auth.create_user_with_email_and_password(email, password)
             print("Account Created")
+            on_Click()
+            HomePage()
             window.destroy()
-            # import input
         
         except Exception as e:
         #    print(e)
@@ -63,12 +67,20 @@ def SignUp():
            error = json.loads(error_json)['error']['message']
            Err=""
            if error == "INVALID_EMAIL":
-            Err="Email invalid"
+            # Err="Email invalid"
+            my_text = "Invalid Email Format (@example.com)"
+            EmailErr()
            elif error == "EMAIL_EXISTS":
-            Err="Email already exists"  
+            # Err="Email already exists" 
+            my_text = "Email already exists"
+            EmailErr()
            elif error == "WEAK_PASSWORD : Password should be at least 6 characters":
-            Err="Password should be at least 6 characters"
-              
+            # Err="Password should be at least 6 characters"
+            my_text = ""
+            EmailErr()
+            my_text_2 = "Password should be at least 6 characters"
+            PassErr()
+
            if Err!="":
             messagebox.showerror('Sign Up Error', Err)
 
@@ -80,10 +92,23 @@ def SignInPage():
     window.destroy()
     import signin
 
+global my_text
+global my_text_2
+def EmailErr():
+    global my_text
+    my_label.config(text = my_text)
+
+def PassErr():
+    global my_text_2
+    my_label_2.config(text = my_text_2)
+
+def on_Click():
+	messagebox.showinfo("Hello", "Account Created Successfully")
+
 window = Tk()
 window.geometry("1440x689")
 window.configure(bg = "#FFFFFF")
-myFont = font.Font(family='Roboto Thin', size=15, weight='bold')
+myFont = font.Font(family='Roboto Thin', size=15)
 myFont_2 = font.Font(family='Roboto Thin', size=9)
 canvas = Canvas(
     window,
@@ -122,7 +147,9 @@ button_1 = Button(
     borderwidth=0,
     highlightthickness=0,
     relief="flat",
-    command=HomePage
+    command=HomePage,
+    activebackground='#B44E9D'
+    
 )
 button_1.place(
     x=569.0,
@@ -195,7 +222,16 @@ entry_1.place(
     width=342.0,
     height=47.0
 )
-# entry_1.insert(0, '@example.com')
+my_label = Label( text = "",
+bg="#FFFFFF",
+fg="red")
+
+my_label.place(
+     x=114.0,
+     y=310.0
+   
+)
+
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
 image_2 = canvas.create_image(
@@ -239,6 +275,7 @@ entry_2.place(
 )
 
 c_v1=IntVar(value=0)
+
 def my_show():
     
     if(c_v1.get()==1):
@@ -249,7 +286,6 @@ def my_show():
 c1 = Checkbutton(text='Show Password',variable=c_v1,
 	onvalue=1,offvalue=0,command=my_show,bg = "#FFFFFF",)
 
-# button_h = Button(window, text='Show', width=25, command=clicked)
 c1.place(
     x=70.0,
     y=450.0,
@@ -259,10 +295,19 @@ c1.place(
 
 c1['font'] = myFont_2
 
-# button_image_1 = PhotoImage(
-#     file=relative_to_assets("button_1.png"))
+my_label_2 = Label( text = "",
+bg="#FFFFFF",
+fg="red")
+
+my_label_2.place(
+     x=114.0,
+     y=430.0 
+)
+
+button_image_1 = PhotoImage(
+    file=relative_to_assets("SignUp.png"))
 button_1 = Button(
-    text="Sign Up",
+    image=button_image_1,
     bg = "#FFFFFF",
     fg='#B44E9D',
     borderwidth=0,
@@ -272,10 +317,10 @@ button_1 = Button(
     
 )
 button_1.place(
-    x=200.0,
-    y=520.0,
-    width=157.0,
-    height=45.0
+    x=150.0,
+    y=500.0,
+    width=257.0,
+    height=100.0
 )
 button_1['font'] = myFont
 # entry_image_3 = PhotoImage(
