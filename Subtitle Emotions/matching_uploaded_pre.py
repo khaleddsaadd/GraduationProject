@@ -23,12 +23,16 @@ def FindMaxLength(A, B):
              maxm = max(maxm, j)
     return maxm
  
- 
-def match(uploaded):
-    # print(uploaded)
+def Fullseq(Fullseq):
+    print("Markov of All Sequence")
+    print(" ")
+    Markov_Fullseq = SeqMarkovChain(Fullseq)
+    print(Markov_Fullseq)
+
+def match(Subseq):
     Pre_SubSeq = DatasetFullSeq('Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv')
-    print(FindMaxLength(Pre_SubSeq, uploaded))
-    Number = FindMaxLength(Pre_SubSeq, uploaded)
+    print(FindMaxLength(Pre_SubSeq, Subseq))
+    Number = FindMaxLength(Pre_SubSeq, Subseq)
     if Number <= 20 and Number >=15:
         print("Pre Violence")
         Number = 0
