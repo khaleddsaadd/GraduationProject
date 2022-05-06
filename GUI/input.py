@@ -61,8 +61,12 @@ def browseSubtitles():
         canvas.itemconfig(SubtitleLabel, text=SubtitleName)
         print("Loading...")
         # print(OneSubtitleEmotions(SubtitleName))
-        div_emotions=OneSubtitleEmotions(SubtitleName)
+        result = OneSubtitleEmotions(SubtitleName)
+        div_emotions= result[0]
         Fullseq(div_emotions)
+        print(div_emotions)
+        print(result[1])
+        
         count=0
         three_emotions=[]
         for x in div_emotions:

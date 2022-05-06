@@ -7,18 +7,21 @@ import csv
 from csv import DictWriter
 from SeqMarkovChain import*
 import nltk
-nltk.download('omw-1.4')
+# nltk.download('omw-1.4')
 
 
 def OneSubtitleEmotions (subtitlefile):
     S=[]
     emotions=[]
+    Start=[]
     i=0
     filepath = subtitlefile
     subs = pysrt.open(filepath)
 
     for sub in subs:
         S.append(sub.text)
+        start = sub.start.to_time()
+        Start.append(str(start))
     for Emotion in S:
         max_key=max(te.get_emotion(Emotion),key=te.get_emotion(Emotion).get)
         emotions.append(max_key)
@@ -37,4 +40,16 @@ def OneSubtitleEmotions (subtitlefile):
         a= Counter()
     # print("\n*************************************************************************************************")
     # print("Minimized Sequence ",f) 
-    return emotions
+    return emotions , Start
+    # print(len(emotions))
+    # print(len(Start))
+
+OneSubtitleEmotions('Subtitles\\Non Violence Subtitles\\6Underground1.txt')
+# Start = []
+# sub = pysrt.open("Subtitles\\Non Violence Subtitles\\6Underground1.txt")
+# for i in range (len(sub)):
+#     start = sub[i].start.to_time()
+#     end = sub[i].end.to_time()
+#     Start.append(str(start))
+
+# print(Start)
