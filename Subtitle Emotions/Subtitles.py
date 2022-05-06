@@ -75,8 +75,8 @@ class Subtitles(object):
 
             print("")
                         
-            MC_Violence = MCF.func('Subtitle Emotions\Datasets\\Violence_Subtitles_Dataset.csv')
-            MC_NonViolence = MCF.func('Subtitle Emotions\Datasets\\NonViolence_Subtitles_Dataset.csv')
+            MC_Violence = MCF.MarkovModel('Subtitle Emotions\Datasets\\Violence_Subtitles_Dataset.csv')
+            MC_NonViolence = MCF.MarkovModel('Subtitle Emotions\Datasets\\NonViolence_Subtitles_Dataset.csv')
 
             check= self.checkingViolence(Mp, MC_Violence, MC_NonViolence)
             print(check)

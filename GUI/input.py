@@ -13,7 +13,7 @@ import sys
 sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
 from matching_uploaded_pre import match
-from matching_uploaded_pre import Fullseq
+# from matching_uploaded_pre import Fullseq
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
@@ -63,7 +63,7 @@ def browseSubtitles():
         # print(OneSubtitleEmotions(SubtitleName))
         result = OneSubtitleEmotions(SubtitleName)
         div_emotions= result[0]
-        Fullseq(div_emotions)
+        # Fullseq(div_emotions)
         print(div_emotions)
         print(result[1])
         
@@ -75,7 +75,7 @@ def browseSubtitles():
                 count+=1
             else : 
                 # print(three_emotions)
-                match(three_emotions)
+                match(div_emotions,three_emotions)
                 three_emotions.clear()
                 count=0
         
