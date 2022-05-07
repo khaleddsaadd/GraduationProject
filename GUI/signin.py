@@ -5,6 +5,7 @@
 from cgitb import text
 from email import message
 import tkinter.font as font
+from numpy import size
 from regex import E, P
 import pyrebase
 import json
@@ -21,6 +22,7 @@ OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./signin_assets")
 
 
+
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 config = {'apiKey': "AIzaSyD3SaqfyUcu1Xnjkeaqw3ILpn_w4v5s4Fo",
@@ -33,23 +35,33 @@ config = {'apiKey': "AIzaSyD3SaqfyUcu1Xnjkeaqw3ILpn_w4v5s4Fo",
   'measurementId': "G-FQRT3VDG5B"}
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+global my_text
+global my_text_2
 
 def login():
+  
     global my_text
     global my_text_2
- 
     email = entry_1.get()
     password = entry_2.get()
     if not email:
         print("Mail is empty")
+        my_text = "Please Enter An Email"
+        EmailErr()
     elif not password:
         print("Password is empty")
+        my_text = ""
+        EmailErr()
+        my_text_2 = "Please Enter Yout Password"
+        PassErr()
     else:
         try:
             signin = auth.sign_in_with_email_and_password(email, password)
             print("Sign In Was Successfull")
+            on_Click()
             window.destroy()
             import input
+
         except Exception as e:
         #    print(e)
            error_json = e.args[1]
@@ -74,16 +86,46 @@ def login():
             messagebox.showerror('Sign Up Error', Err)  
 
 def ResetPass():
-    email = entry_1.get()
-    auth.send_password_reset_email(email)
-    print("We have sent an email, check your inbox ")     
+ global my_text
+ global my_text_2
+ email = entry_1.get()
+ if not email:
+    my_text = "Please Enter An Email"
+    EmailErr()
+ else: 
+    try:
+      
+      auth.send_password_reset_email(email)
+      print("We have sent an email, check your inbox ")
+      on_Click()  
+  
+    except Exception as e:
+           print(e)
+           error_json = e.args[1]
+           error = json.loads(error_json)['error']['message']
+           Err=""
+           if error == "MISSING_EMAIL":
+            # Err="Email invalid"
+            my_text = "Please Enter Your Email"
+            EmailErr()
+           elif error == "EMAIL_NOT_FOUND":
+            # Err="Wrong Email"  
+             my_text = "Email deosn't exist"
+             EmailErr()
+           elif error == "INVALID_EMAIL":
+            # Err="Email invalid"
+            my_text = "Invalid Email Format (@example.com)"
+            EmailErr()
+           
 
 def HomePage():
     window.destroy()
     import Home
 
-global my_text
-global my_text_2
+def on_Click():
+	messagebox.showinfo("Done", "Email Has Sent")
+
+
 def EmailErr():
     global my_text
     my_label.config(text = my_text)
@@ -92,12 +134,17 @@ def PassErr():
     global my_text_2
     my_label_2.config(text = my_text_2)
 
+def SignUp():
+    window.destroy()
+    import signup
+
 window = Tk()
 
 window.geometry("1440x689")
 window.configure(bg = "#FFFFFF")
 myFont = font.Font(family='Roboto Thin', size=10)
 myFont_2 = font.Font(family='Roboto Thin', size=9)
+myFontS = font.Font(family='Roboto Thin', size=13)
 
 canvas = Canvas(
     window,
@@ -154,14 +201,26 @@ image_3 = canvas.create_image(
     image=image_image_3
 )
 
-canvas.create_text(
-    1276.0,
-    65.0,
-    anchor="nw",
+button_s = Button(
+    
     text="Sign Up",
-    fill="#FFFFFF",
-    font=("Roboto", 18 * -1)
+    
+    fg="#FFFFFF",
+    bg="#6079BD",
+    borderwidth=0,
+    highlightthickness=0,
+    relief="flat",
+    command=SignUp,
+    activebackground='#6079BD'
+    
 )
+button_s.place(
+    x=1169.0,
+    y=61.0,
+    width=200.0,
+    height=50.0
+)
+button_s['font'] = myFontS
 
 canvas.create_rectangle(
     513.0,
@@ -173,7 +232,7 @@ canvas.create_rectangle(
 
 canvas.create_text(
     652.0,
-    193.0,
+    183.0,
     anchor="nw",
     text="Sign In",
     fill="#000000",
@@ -183,12 +242,12 @@ image_image_1 = PhotoImage(
     file=relative_to_assets("email.png"))
 image_1 = canvas.create_image(
     580.0,
-    310,
+    295,
     image=image_image_1
 )
 canvas.create_text(
     601.0,
-    303.0,
+    285.0,
     anchor="nw",
     text="Email (@example.com)",
     fill="#868686",
@@ -199,7 +258,7 @@ entry_image_1 = PhotoImage(
     file=relative_to_assets("entry_1.png"))
 entry_bg_1 = canvas.create_image(
     736.0,
-    357.5,
+    345.5,
     image=entry_image_1
 )
 entry_1 = Entry(
@@ -209,7 +268,7 @@ entry_1 = Entry(
 )
 entry_1.place(
     x=565.0,
-    y=333.0,
+    y=313.0,
     width=342.0,
     height=47.0
 )
@@ -218,20 +277,20 @@ bg="#FFFFFF",
 fg="red")
 
 my_label.place(
-     x=560.0,
-     y=365.0
+     x=565.0,
+     y=382.0
 )
 
 image_image_p = PhotoImage(
     file=relative_to_assets("pass.png"))
 image_p = canvas.create_image(
     580.0,
-    405,
+    415,
     image=image_image_p
 )
 canvas.create_text(
     601.0,
-    398.0,
+    405.0,
     anchor="nw",
     text="Password",
     fill="#868686",
@@ -242,7 +301,7 @@ entry_image_2 = PhotoImage(
     file=relative_to_assets("entry_3.png"))
 entry_bg_2 = canvas.create_image(
     736.0,
-    448.5,
+    455.5,
     image=entry_image_2
 )
 
@@ -256,7 +315,7 @@ entry_2 = Entry(
 )
 entry_2.place(
     x=565.0,
-    y=424.0,
+    y=430.0,
     width=342.0,
     height=47.0
 )
@@ -273,10 +332,10 @@ c1 = Checkbutton(text='Show Password',variable=c_v1,
 	onvalue=1,offvalue=0,command=my_show,bg="#FFFFFF", activebackground='#FFFFFF')
 
 c1.place(
-    x=740.0,
-    y=480.0,
-    width=200.0,
-    height=45.0
+    x=775.0,
+    y=485.0,
+    width=150.0,
+    height=25.0
 )
 
 c1['font'] = myFont_2
@@ -286,8 +345,8 @@ my_label_2 = Label(
  fg="red")
 
 my_label_2.place(
-     x=560.0,
-     y=450.0
+     x=565.0,
+     y=490.0
 )
 
 
@@ -322,15 +381,15 @@ button_for = Button(
     activebackground='#FFFFFF'
 )
 button_for.place(
-    x=628.0,
+    x=678.0,
     y=510.0,
-    width=217.0,
+    width=117.0,
     height=45.0
 )
 button_for['font'] = myFont
 
 button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+    file=relative_to_assets("Group.png"))
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -343,7 +402,7 @@ button_1.place(
     x=628.0,
     y=557.0,
     width=217.0,
-    height=45.0
+    height=55.0
 )
 
 canvas.create_text(
