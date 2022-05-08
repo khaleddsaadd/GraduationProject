@@ -1,6 +1,6 @@
 from distutils.command.upload import upload
 from itertools import count
-from typing_extensions import Self
+# from typing_extensions import Self
 from numpy import mat
 from SeqMarkovChain import*
 from Sub_MarkovChain import*
@@ -25,35 +25,36 @@ def FindMaxLength(A, B):
              maxm = max(maxm, j)
     return maxm
  
-# def Fullseq(Fullseq):
-#     print("Markov of All Sequence")
-#     print(" ")
-#     Markov_Fullseq = SeqMarkovChain(Fullseq)
-#     print(Markov_Fullseq)
-    
-
 def match(Fullseq,Subseq,SubTime):
 
     Markov_Fullseq = SeqMarkovChain(Fullseq)
-    T= SubTime
-    print(T)
+    print("Subsequence Emotions ")
     S= Subseq
     print(S)
-    print("--------------------------------------------")
-
+    print(" ")
+    print("Subsequence Times")
+    T= SubTime
+    print(T)
+    print(" ")
     Pre_SubSeq = DatasetFullSeq('Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv')
-    print(FindMaxLength(Pre_SubSeq, Subseq))
     Number = FindMaxLength(Pre_SubSeq, Subseq)
-
-    if Number <= 20 and Number >=15:
-        print("Pre Violence")
-
+    print("Number of matched emotions with Pre CSV",Number)
+    print(" ")
+    if Number in range(10, 30):
+        print("Scene Status: Pre Violence")
         x = Prediction_MarkovChain(transition_matrix=Markov_Fullseq,states=['Angry', 'Fear', 'Happy','Sad','Surprise'])
+        print(" ")
         print("Predicted Upcoming Emotion")
         print(x.generate_states(current_state=Subseq[-1],no=20))
-        print(x)
-       
-
+        print(" ")
+        Pre_Start = SubTime[0]
+        Pre_End = SubTime[-1]
+        print("Pre Scene Start Time: ",Pre_Start)
+        print(" ")
+        print("Pre Scene End Time: ",Pre_End)
+        print(" ")
+        #Function Reem w Tamer ()
+        print("----------------------------------")
         Number = 0
     else:
         print("Non Violence")

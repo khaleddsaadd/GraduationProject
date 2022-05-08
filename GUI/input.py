@@ -48,7 +48,6 @@ def browseMovie():
     if filename != "":
         canvas.itemconfig(MovieLabel, text=filename)
         print(filename)
-    # PlayVideo(filename)
 
 def browseSubtitles():
     SubtitleName = filedialog.askopenfilename(initialdir = "/",
@@ -63,7 +62,7 @@ def browseSubtitles():
         result = OneSubtitleEmotions(SubtitleName)
         Sequence_emotions= result[0]
         Time_emotions = result[1]
-        n = 20
+        n = 30
         Subsequences = list(divide_chunks(Sequence_emotions, n))
         SubTime = list(divide_chunks(Time_emotions, n))
         for (subE, subT) in zip(Subsequences, SubTime):
