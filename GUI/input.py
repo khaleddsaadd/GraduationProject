@@ -13,7 +13,7 @@ import sys
 sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
 from matching_uploaded_pre import match
-# from matching_uploaded_pre import Fullseq
+from win10toast import ToastNotifier
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
@@ -78,6 +78,9 @@ def browseSubtitles():
                 match(div_emotions,three_emotions)
                 three_emotions.clear()
                 count=0
+
+    notify = ToastNotifier()
+    notify.show_toast("Notification", "Movie is ready",icon_path=None,duration=20)
         
 
 
