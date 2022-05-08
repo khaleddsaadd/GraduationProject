@@ -10,6 +10,7 @@ sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
 from matching_uploaded_pre import match
 from win10toast import ToastNotifier
+from plyer import notification
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
@@ -68,9 +69,9 @@ def browseSubtitles():
         for (subE, subT) in zip(Subsequences, SubTime):
             match(Sequence_emotions,subE,subT)
 
-    notify = ToastNotifier()
-    notify.show_toast("Notification", "Movie is ready",icon_path=None,duration=20)
-        
+    # notify = ToastNotifier()
+    # notify.show_toast("Notification", "Movie is ready",icon_path=None,duration=20)
+    notification.notify(title='Pruney', message='Movie is ready',app_icon=None,timeout=50)
 
 
  
