@@ -32,11 +32,15 @@ def FindMaxLength(A, B):
 #     print(Markov_Fullseq)
     
 
-def match(Fullseq,Subseq):
+def match(Fullseq,Subseq,SubTime):
 
     Markov_Fullseq = SeqMarkovChain(Fullseq)
-    # print(Markov_Fullseq)
-    # print("  ")
+    T= SubTime
+    print(T)
+    S= Subseq
+    print(S)
+    print("--------------------------------------------")
+
     Pre_SubSeq = DatasetFullSeq('Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv')
     print(FindMaxLength(Pre_SubSeq, Subseq))
     Number = FindMaxLength(Pre_SubSeq, Subseq)

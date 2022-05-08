@@ -61,11 +61,14 @@ def browseSubtitles():
         canvas.itemconfig(SubtitleLabel, text=SubtitleName)
         print("Loading...")
         result = OneSubtitleEmotions(SubtitleName)
-        div_emotions= result[0]
+        Sequence_emotions= result[0]
+        Time_emotions = result[1]
         n = 20
-        Subsequences = list(divide_chunks(div_emotions, n))
-        for sub in Subsequences:
-            match(div_emotions,sub)
+        Subsequences = list(divide_chunks(Sequence_emotions, n))
+        SubTime = list(divide_chunks(Time_emotions, n))
+        for (subE, subT) in zip(Subsequences, SubTime):
+            match(Sequence_emotions,subE,subT)
+
     notify = ToastNotifier()
     notify.show_toast("Notification", "Movie is ready",icon_path=None,duration=20)
         
