@@ -1,5 +1,6 @@
 from distutils.command.upload import upload
 from itertools import count
+from os import system
 # from typing_extensions import Self
 from numpy import mat
 from SeqMarkovChain import*
@@ -10,6 +11,10 @@ from numpy import mat
 from SeqMarkovChain import*
 from Sub_MarkovChain import*
 from Subtitles2 import*
+import sys
+from moviepy.editor import *
+import datetime
+
 
 def FindMaxLength(A, B):
     n = len(A)
@@ -25,8 +30,9 @@ def FindMaxLength(A, B):
              maxm = max(maxm, j)
     return maxm
  
-def match(Fullseq,Subseq,SubTime):
-
+def match(Fullseq,Subseq,SubTime,M_Name):
+    # sys.path.append('../GUI')
+    # from input import browseMovie
     Markov_Fullseq = SeqMarkovChain(Fullseq)
     print("Subsequence Emotions ")
     S= Subseq
@@ -38,6 +44,7 @@ def match(Fullseq,Subseq,SubTime):
     print(" ")
     Pre_SubSeq = DatasetFullSeq('Subtitle Emotions\Datasets\\PreViolence_Subtitles_Dataset.csv')
     Number = FindMaxLength(Pre_SubSeq, Subseq)
+    # print(sys.path)
     print("Number of matched emotions with Pre CSV",Number)
     print(" ")
     if Number in range(10, 30):
@@ -53,14 +60,47 @@ def match(Fullseq,Subseq,SubTime):
         print(" ")
         print("Pre Scene End Time: ",Pre_End)
         print(" ")
+        print(type(Pre_End))
+        SubVideo(Pre_Start,Pre_End,M_Name)
         #Function Reem w Tamer ()
+        
         print("----------------------------------")
         Number = 0
+        
     else:
         print("Non Violence")
         Number = 0
+ 
+  
+# Start_pre=[]
+# End_pre=[]
 
-    
+def SubVideo(x,y,movie):
+   date_time = datetime.datetime.strptime(x, "%H:%M:%S.%f")
+
+   print(date_time)
+   
+   a_timedelta = date_time - datetime.datetime(1900, 1, 1)
+   seconds = a_timedelta.total_seconds()
+
+   date_time_2 = datetime.datetime.strptime(y, "%H:%M:%S.%f")
+
+   print(date_time_2)
+   
+   a_timedelta_2 = date_time_2 - datetime.datetime(1900, 1, 1)
+   seconds_end = a_timedelta_2.total_seconds()
+ 
+   print(seconds/60)
+   print(seconds_end/60)
+   
+   print(movie)
+   clip = VideoFileClip(movie) 
+   clip = clip.subclip(seconds/60, seconds_end/60)
+   #clip.preview()
+
+   
+
+
 
         
 # test=['Happy', 'Surprise', 'Happy', 'Happy', 'Happy', 'Happy', 'Sad', 'Happy']

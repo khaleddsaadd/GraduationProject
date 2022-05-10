@@ -9,8 +9,9 @@ import sys
 sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
 from matching_uploaded_pre import match
-from win10toast import ToastNotifier
+# from win10toast import ToastNotifier
 from plyer import notification
+from moviepy.editor import *
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
@@ -49,8 +50,14 @@ def browseMovie():
     if filename != "":
         canvas.itemconfig(MovieLabel, text=filename)
         print(filename)
+        # clip = VideoFileClip(filename) 
+        # clip = clip.subclip(1, 3)
+        # clip.preview()
+        return filename
 
 def browseSubtitles():
+    Movie_Name=browseMovie()
+    print(Movie_Name)
     SubtitleName = filedialog.askopenfilename(initialdir = "/",
                                           title = "Select a File",
                                           filetypes = (("Text files",
@@ -67,7 +74,7 @@ def browseSubtitles():
         Subsequences = list(divide_chunks(Sequence_emotions, n))
         SubTime = list(divide_chunks(Time_emotions, n))
         for (subE, subT) in zip(Subsequences, SubTime):
-            match(Sequence_emotions,subE,subT)
+            match(Sequence_emotions,subE,subT,Movie_Name)
 
     # notify = ToastNotifier()
     # notify.show_toast("Notification", "Movie is ready",icon_path=None,duration=20)
