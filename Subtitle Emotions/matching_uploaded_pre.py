@@ -61,7 +61,8 @@ def match(Fullseq,Subseq,SubTime,M_Name):
         print("Pre Scene End Time: ",Pre_End)
         print(" ")
         print(type(Pre_End))
-        SubVideo(Pre_Start,Pre_End,M_Name)
+        Prevideo = SubVideo(Pre_Start,Pre_End,M_Name)
+        Prevideo.preview()
         #Function Reem w Tamer ()
         
         print("----------------------------------")
@@ -97,6 +98,7 @@ def SubVideo(x,y,movie):
    clip = VideoFileClip(movie) 
    clip = clip.subclip(seconds/60, seconds_end/60)
    #clip.preview()
+   return clip
 
    
 
