@@ -91,12 +91,12 @@ def SubVideo(x,y,movie):
    a_timedelta_2 = date_time_2 - datetime.datetime(1900, 1, 1)
    seconds_end = a_timedelta_2.total_seconds()
  
-   print(seconds/60)
-   print(seconds_end/60)
+   print(seconds)
+   print(seconds_end)
    
    print(movie)
    clip = VideoFileClip(movie) 
-   clip = clip.subclip(seconds/60, seconds_end/60)
+   clip = clip.subclip(seconds, seconds_end)
    #clip.preview()
    return clip
 
