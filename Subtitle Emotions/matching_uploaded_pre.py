@@ -14,7 +14,9 @@ from Subtitles2 import*
 import sys
 from moviepy.editor import *
 import datetime
-
+import sys
+sys.path.append('Video Emotions')
+from OneVideoEmotions import FramesEmotions
 
 def FindMaxLength(A, B):
     n = len(A)
@@ -62,7 +64,6 @@ def match(Fullseq,Subseq,SubTime,M_Name):
         print(" ")
         print(type(Pre_End))
         Prevideo = SubVideo(Pre_Start,Pre_End,M_Name)
-        Prevideo.preview()
         #Function Reem w Tamer ()
         
         print("----------------------------------")
@@ -71,34 +72,35 @@ def match(Fullseq,Subseq,SubTime,M_Name):
     else:
         print("Non Violence")
         Number = 0
- 
+
   
 # Start_pre=[]
 # End_pre=[]
 
 def SubVideo(x,y,movie):
-   date_time = datetime.datetime.strptime(x, "%H:%M:%S.%f")
+    date_time = datetime.datetime.strptime(x, "%H:%M:%S.%f")
+    print(date_time)
+    
+    a_timedelta = date_time - datetime.datetime(1900, 1, 1)
+    seconds = a_timedelta.total_seconds()
 
-   print(date_time)
-   
-   a_timedelta = date_time - datetime.datetime(1900, 1, 1)
-   seconds = a_timedelta.total_seconds()
+    date_time_2 = datetime.datetime.strptime(y, "%H:%M:%S.%f")
 
-   date_time_2 = datetime.datetime.strptime(y, "%H:%M:%S.%f")
+    print(date_time_2)
+    
+    a_timedelta_2 = date_time_2 - datetime.datetime(1900, 1, 1)
+    seconds_end = a_timedelta_2.total_seconds()
+    
+    print("Starrt ",seconds)
+    print("endd ",seconds_end)
+    
+    print(movie)
+    FramesEmotions(movie,int(seconds),int(seconds_end))
 
-   print(date_time_2)
-   
-   a_timedelta_2 = date_time_2 - datetime.datetime(1900, 1, 1)
-   seconds_end = a_timedelta_2.total_seconds()
- 
-   print(seconds)
-   print(seconds_end)
-   
-   print(movie)
-   clip = VideoFileClip(movie) 
-   clip = clip.subclip(seconds, seconds_end)
-   #clip.preview()
-   return clip
+#    clip = VideoFileClip(movie) 
+#    clip = clip.subclip(seconds, seconds_end)
+#    #clip.preview()
+#    return clip
 
    
 

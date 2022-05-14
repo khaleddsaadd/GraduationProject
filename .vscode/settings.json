@@ -1,5 +1,7 @@
 {
     "python.analysis.extraPaths": [
-        "./Subtitle Emotions"
+        "./Subtitle Emotions",
+        "./Video Emotions",
+        "./Video Emotions"
     ]
 }
