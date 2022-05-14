@@ -25,6 +25,7 @@ def FramesEmotions(Movie_Name,Start,End):
     cap = cv2.VideoCapture(Movie_Name)
     success = True
     img=0
+    emo=[]
     while success:
         success,image = cap.read()
         if count%30 == 0 :
@@ -47,7 +48,10 @@ def FramesEmotions(Movie_Name,Start,End):
                             label=class_labels[preds.argmax()]
                             label_position=(x,y)
                             print(label)
+                            emo.append(label)
                             # Array w n-append el label feha 
                             # Call PredictNext Function 
 
         count+=1
+
+    print(emo)
