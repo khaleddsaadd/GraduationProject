@@ -34,7 +34,7 @@ def FramesEmotions(Movie_Name,Start,End):
         if count%30 == 0 :
              img = img+1
              if img in range(Start,End):
-                cv2.imwrite('frame%d.jpg'%img,image)
+                #cv2.imwrite('frame%d.jpg'%img,image)
                 gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
                 faces=face_classifier.detectMultiScale(gray,1.3,5)
                 for (x,y,w,h) in faces:
@@ -78,5 +78,5 @@ def FramesEmotions(Movie_Name,Start,End):
     MC_Violence = MCF.func('Video Emotions\Datasets\\final_violence_movies.csv')
     MC_NonViolence = MCF.func('Video Emotions\Datasets\\me_final_nonviolence_movies.csv')
     MP_Emotions=SeqMarkovChain(VP_Emotions)
-    x.checkingViolence(MP_Emotions,MC_Violence,MC_NonViolence)
+    x.checkingViolence(MP_Emotions,MC_Violence,MC_NonViolence,Movie_Name,End)
     

@@ -15,6 +15,7 @@ from csv import writer
 import os
 from sklearn.metrics import confusion_matrix
 from sklearn import metrics
+import os.path
 
 
  
@@ -45,7 +46,7 @@ class Prediction_MarkovChain(object):
 
 
 
-    def checkingViolence(self, Mp, MC_Violence, MC_NonViolence):
+    def checkingViolence(self, Mp, MC_Violence, MC_NonViolence,Movie_Name,Violence_Start):
 
     
             predicted_violence_distance = np.linalg.norm(Mp - MC_Violence)
@@ -56,7 +57,25 @@ class Prediction_MarkovChain(object):
             print("")
             
             if predicted_violence_distance > predicted_Nonviolence_distance :
+                Violence_End=Violence_Start + 120
                 print(" Prediction : Violence Scene ")
+                print("Violence Start",Violence_Start)
+                print("Violence Start",Violence_End)
+                
+                # fields = ['Violence Start', 'Violence End']
+                # subfields= {'Violence Start':Violence_Start, 'Violence End':Violence_End}
+
+
+                filename = Movie_Name
+                fullpath = filename + ".csv"
+                file_exists = os.path.isfile(fullpath)
+
+                with open (fullpath, 'a') as csvfile:
+                    headers = ['Start', 'End']
+                    writer = csv.DictWriter(csvfile, delimiter=',', lineterminator='\n',fieldnames=headers)
+                    if not file_exists:
+                        writer.writeheader()  # file doesn't exist yet, write a header
+                    writer.writerow({'Start': Violence_Start, 'End': Violence_End})
 
             else:
                 print(" Prediction : Non-Violence Scene ")
