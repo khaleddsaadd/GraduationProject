@@ -13,6 +13,7 @@ from itertools import islice
 from collections import Counter
 from SeqMarkovChain import*
 from Video2 import*
+import Markov_Chain as MCF
 
 def FramesEmotions(Movie_Name,Start,End):
     face_classifier=cv2.CascadeClassifier('Video Emotions/Models/haarcascade_frontalface_default.xml')
@@ -58,9 +59,24 @@ def FramesEmotions(Movie_Name,Start,End):
 
     print(emo)
 
+    emo.append('Surprise')
+    emo.append('Angry')
+    emo.append('Happy')
+    emo.append('Neutral')
+    emo.append('Sad')
+    emo.append('Surprise')
+    emo.append('Angry')
+    emo.append('Happy')
+    emo.append('Neutral')
+    emo.append('Sad')
+
     Pre_MC=SeqMarkovChain(emo)
 
-    Predicted_emo= Prediction_MarkovChain.generate_states(current_state=emo[-1],transition_matrix=Pre_MC,
-                                states=['Angry', 'Happy', 'Neutral','Sad','Surprise'], no=150)
-
+    x = Prediction_MarkovChain(transition_matrix=Pre_MC,states=['Angry', 'Happy', 'Neutral','Sad','Surprise'])
+    VP_Emotions = x.generate_states(current_state=emo[-1],no=120)
+    print("Predicted emotions from video ",VP_Emotions)
+    MC_Violence = MCF.func('Video Emotions\Datasets\\final_violence_movies.csv')
+    MC_NonViolence = MCF.func('Video Emotions\Datasets\\me_final_nonviolence_movies.csv')
+    MP_Emotions=SeqMarkovChain(VP_Emotions)
+    x.checkingViolence(MP_Emotions,MC_Violence,MC_NonViolence)
     

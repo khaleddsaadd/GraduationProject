@@ -20,10 +20,10 @@ def func(csvName):
       x = x + " "
   x = x.replace(',','')
   x = x.replace("'", "")
-  #print (x)
+
   arr = nltk.word_tokenize(x)
 
-  #print(arr)
+
   a= Counter()
   b = 0
   n = 10
@@ -33,29 +33,12 @@ def func(csvName):
     a [x]+=1
   
     if b%n == 0:
-    #print (a)
+
       max_key = max(a, key=a.get)
-      #print(max_key)
+
       f.append(max_key)
       a= Counter()
 
-  #print(f)   
-  # print(SeqMarkovChain(f))
   return SeqMarkovChain(arr)
-
-
-
-print("Final- Non-Violence Dataset Markov Chain ")
-print(func('Video Emotions\Datasets\\final_nonviolence_movies.csv'))
-
-print("Final- Violence Dataset Markov Chain ")
-print(func('Video Emotions\Datasets\\final_violence_movies.csv'))
-
-# print("Violence Dataset Markov Chain ")
-# func('Video Emotions\Datasets\old_violence_dataset.csv')
-# print("--------------------------------------------")
-# print("Non Violence Dataset Markov Chain ")
-# func('Video Emotions\Datasets\old_nonviolence_dataset.csv')
-
 
 

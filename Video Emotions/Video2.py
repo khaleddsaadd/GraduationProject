@@ -19,6 +19,8 @@ from sklearn import metrics
 
  
 class Prediction_MarkovChain(object):
+
+
     def __init__(self, transition_matrix, states):
         self.transition_matrix = np.atleast_2d(transition_matrix)
         self.states = states
@@ -40,3 +42,24 @@ class Prediction_MarkovChain(object):
             future_states.append(next_state)
             current_state = next_state
         return future_states
+
+
+
+    def checkingViolence(self, Mp, MC_Violence, MC_NonViolence):
+
+    
+            predicted_violence_distance = np.linalg.norm(Mp - MC_Violence)
+            print( "Distance between Predicted and Violence :", predicted_violence_distance)
+            
+            predicted_Nonviolence_distance = np.linalg.norm(Mp - MC_NonViolence)
+            print( "Distance between Predicted and Non-Violence :", predicted_Nonviolence_distance)
+            print("")
+            
+            if predicted_violence_distance > predicted_Nonviolence_distance :
+                print(" Prediction : Violence Scene ")
+
+            else:
+                print(" Prediction : Non-Violence Scene ")
+
+            print("")
+
