@@ -12,6 +12,8 @@ from skimage.transform import resize
 from itertools import islice
 from collections import Counter
 from SeqMarkovChain import*
+from Video2 import*
+
 def FramesEmotions(Movie_Name,Start,End):
     face_classifier=cv2.CascadeClassifier('Video Emotions/Models/haarcascade_frontalface_default.xml')
     classifier = load_model('Video Emotions/Models/EmotionDetectionModel.h5')
@@ -55,3 +57,10 @@ def FramesEmotions(Movie_Name,Start,End):
         count+=1
 
     print(emo)
+
+    Pre_MC=SeqMarkovChain(emo)
+
+    Predicted_emo= Prediction_MarkovChain.generate_states(current_state=emo[-1],transition_matrix=Pre_MC,
+                                states=['Angry', 'Happy', 'Neutral','Sad','Surprise'], no=150)
+
+    
