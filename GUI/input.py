@@ -9,14 +9,17 @@ import sys
 sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
 from matching_uploaded_pre import match
+sys.path.append('Video Emotions')
+from BlurScene import *
+
 # from win10toast import ToastNotifier
 from plyer import notification
 from moviepy.editor import *
-
+MovieName=""
+SubtitlesName=""
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("./input_assets")
 test = 'z'
-
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
@@ -49,38 +52,48 @@ def browseMovie():
                                                         ".")))
     if filename != "":
         canvas.itemconfig(MovieLabel, text=filename)
-        print(filename)
+        global MovieName
+        MovieName = filename
         # clip = VideoFileClip(filename) 
         # clip = clip.subclip(1, 3)
         # clip.preview()
         return filename
 
 def browseSubtitles():
-    Movie_Name=browseMovie()
-    print(Movie_Name)
-    SubtitleName = filedialog.askopenfilename(initialdir = "/",
+    SFileName = filedialog.askopenfilename(initialdir = "/",
                                           title = "Select a File",
                                           filetypes = (("Text files",
                                                         ".txt"),
                                                        ("all files",
                                                         ".")))
-    if SubtitleName != "":
-        canvas.itemconfig(SubtitleLabel, text=SubtitleName)
-        print("Loading...")
-        result = OneSubtitleEmotions(SubtitleName)
+    if SFileName != "":
+        canvas.itemconfig(SubtitleLabel, text=SFileName)
+        global SubtitlesName
+        SubtitlesName = SFileName
+        return SFileName
+
+def Start():
+    if MovieName == "":
+        canvas.itemconfig(MovieLabel, text="Please upload a Movie")
+    if SubtitlesName == "":
+        canvas.itemconfig(SubtitleLabel, text="Please upload Subtitles")
+    else:
+        result = OneSubtitleEmotions(SubtitlesName)
         Sequence_emotions= result[0]
         Time_emotions = result[1]
+        print("Subtitles Emotions",Sequence_emotions)
+        print("Subtitles Times",Time_emotions)
+
         n = 30
         Subsequences = list(divide_chunks(Sequence_emotions, n))
         SubTime = list(divide_chunks(Time_emotions, n))
         for (subE, subT) in zip(Subsequences, SubTime):
-            match(Sequence_emotions,subE,subT,Movie_Name)
+            match(Sequence_emotions,subE,subT,MovieName)
+        # mai(MovieName)
 
-    # notify = ToastNotifier()
-    # notify.show_toast("Notification", "Movie is ready",icon_path=None,duration=20)
+
     notification.notify(title='Pruney', message='Movie is ready',app_icon=None,timeout=50)
-
-
+        
  
 window = Tk()
 
@@ -248,19 +261,24 @@ SubtitleLabel = canvas.create_text(
     font=("Roboto Thin", 14 * -1)
 )
 
-
-Start = Button(
+button_s = Button(
+    
+    text="Start Filtering",
+    fg="#000000",
+    bg="#FFFFFF",
     borderwidth=0,
     highlightthickness=0,
-    text="button_2 clicked",
-    command=browseSubtitles,
-    relief="flat"
+    command= Start,
+    relief="flat",
+    activebackground='#6079BD'
+    
 )
-button_2.place(
-    x=1177.0,
-    y=550.0,
-    width=88.0,
-    height=50.0
+button_s.place(
+    x=960.0,
+    y=630.0,
+     width=200.0,
+    height=20.0
+ 
 )
 
 
