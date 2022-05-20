@@ -58,7 +58,7 @@ def login():
         try:
             signin = auth.sign_in_with_email_and_password(email, password)
             print("Sign In Was Successfull")
-            on_Click()
+            # on_Click()
             window.destroy()
             import input
 

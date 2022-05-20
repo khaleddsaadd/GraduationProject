@@ -10,7 +10,6 @@ sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
 from matching_uploaded_pre import match
 sys.path.append('Video Emotions')
-from BlurScene import *
 
 # from win10toast import ToastNotifier
 from plyer import notification
