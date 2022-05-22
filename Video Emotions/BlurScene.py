@@ -12,9 +12,14 @@ from moviepy.editor import VideoFileClip, concatenate_videoclips
 def blur(image):
     return cv2.medianBlur(image, 101)
 def BlurringPart(MovieName,Start,End):
-    BeforeViolnce = Start-1
-    PostViolence = End+1
-    clip = VideoFileClip(MovieName,".mp4")
+    # clip = VideoFileClip(MovieName)
+    # clip1 = VideoFileClip(MovieName.subclip(clip.start,Start[0])
+    # clip2 = VideoFileClip(MovieName,)
+
+    print(Start)
+    print(End)
+    # BeforeViolnce = Start-1
+    # PostViolence = End+1
     # x =int(clip.duration)
     # count=0
     # clips=[]
@@ -22,13 +27,15 @@ def BlurringPart(MovieName,Start,End):
     #     if(i==Start[i]):
     #         clip[i].subclip(Start[i],End[i])
     #         clip[i].preview()
-    clip1 = VideoFileClip(MovieName,".mp4").subclip(clip.start,BeforeViolnce)
-    clip2 = VideoFileClip(MovieName,".mp4").subclip(Start,End)
-    clip3 = VideoFileClip(MovieName,".mp4").subclip(PostViolence,clip.end)
-    clip2_blurred = clip2.fl_image(blur)
-    final_clip = concatenate_videoclips([clip1,clip2_blurred,clip3])
+    # clip1 = VideoFileClip(MovieName,".mp4").subclip(clip.start,BeforeViolnce)
+    # clip2 = VideoFileClip(MovieName,".mp4").subclip(Start,End)
+    # clip3 = VideoFileClip(MovieName,".mp4").subclip(PostViolence,clip.end)
+    # clip2_blurred = clip2.fl_image(blur)
+    # final_clip = concatenate_videoclips([clip1,clip2_blurred,clip3])
 
 def Violence_CSV(MovieName):
+    clip = VideoFileClip(MovieName)
+
     Start=[]
     End=[]
     print("Maioi: ",MovieName)
@@ -41,8 +48,12 @@ def Violence_CSV(MovieName):
             for i in file_csv:
                 Start.append(i[0])
                 End.append(i[1])
-    print(Start)
-    print(End)
+                x = clip.subclip(i[0],i[1])
+                b = x.fl_image(blur)
+                b.preview()
+
+    # print(Start)
+    # print(End)
     # for i in range (len(Start)):
     #     print(Start[i])
     #     BlurringPart(MovieName,int(Start[i]),int(End[i]))

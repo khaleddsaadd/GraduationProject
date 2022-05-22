@@ -10,7 +10,7 @@ sys.path.append('Subtitle Emotions')
 from OneSubtitleEmotions import OneSubtitleEmotions
 from matching_uploaded_pre import match
 sys.path.append('Video Emotions')
-
+from BlurScene import *
 # from win10toast import ToastNotifier
 from plyer import notification
 from moviepy.editor import *
@@ -88,7 +88,7 @@ def Start():
         SubTime = list(divide_chunks(Time_emotions, n))
         for (subE, subT) in zip(Subsequences, SubTime):
             match(Sequence_emotions,subE,subT,MovieName)
-        # mai(MovieName)
+        # Violence_CSV(MovieName)
 
 
     notification.notify(title='Pruney', message='Movie is ready',app_icon=None,timeout=50)
