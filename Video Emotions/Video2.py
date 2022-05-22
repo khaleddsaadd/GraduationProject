@@ -17,7 +17,6 @@ from sklearn.metrics import confusion_matrix
 from sklearn import metrics
 import os.path
 
-
  
 class Prediction_MarkovChain(object):
 
@@ -76,9 +75,14 @@ class Prediction_MarkovChain(object):
                     if not file_exists:
                         writer.writeheader()  # file doesn't exist yet, write a header
                     writer.writerow({'Start': Violence_Start, 'End': Violence_End})
+                    # BlurringPart(fullpath,Violence_Start,Violence_End)
 
             else:
                 print(" Prediction : Non-Violence Scene ")
-
             print("")
 
+
+    # def final(filepath):
+    #     start = filepath.start
+    #     end = filepath.end
+    #     BlurringPart(start, end)
