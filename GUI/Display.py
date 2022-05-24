@@ -14,6 +14,10 @@ ASSETS_PATH = OUTPUT_PATH / Path("./display_assets")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def Movie_Name(x):
+    return x
+
+Movie = Movie_Name("VideoTest.mp4")
 
 def update_duration(event):
     """ updates the duration after finding the duration """
@@ -117,7 +121,7 @@ image_5 = canvas.create_image(
 ########################################################################
 
 vid_player = TkinterVideo(master=window)
-vid_player.load("VideoTest.mp4")
+vid_player.load(Movie)
 vid_player.pack(side="top", fill="both", expand="yes", padx=200,
 			pady=(120, 10))
 #vid_player.place(relx=0.8, rely=0.5, anchor=CENTER)
