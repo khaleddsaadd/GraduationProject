@@ -81,6 +81,6 @@ def Blurring_Violence_CSV(MovieName):
     # final_clip = concatenate_videoclips([clips])
     # final_clip.preview()
 
-Blurring_Violence_CSV("F:\Films and Series\[EgyBest].Mr.Nobody.2009.BluRay.720p.x264.mp4")
+# Blurring_Violence_CSV("F:\Films and Series\[EgyBest].Mr.Nobody.2009.BluRay.720p.x264.mp4")
 
 # BlurringPart(MovieName,int(Start[i]),int(End[i]))
